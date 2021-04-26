@@ -8,15 +8,17 @@
 
     <div class="main">
       <!-- 切换显示 登陆 / 未登陆 -->
-      <div>
-          <img src="" alt="">
-          <div>
+      <div class="user_info">
+          <div class="user_img"><img :src="imgSrc" alt=""></div>
+          <div class="user_message">
             <span>登陆｜注册</span>
             <span>绑定手机号</span>
           </div>
-          <span>
+          <span class="go_login">
             <!-- 跳转 -->
-            <router-link to="/login">></router-link>
+            <router-link to="/login">
+              <i class="iconfont icon-back-copy"></i>
+            </router-link>
           </span>
       </div>
 
@@ -24,11 +26,11 @@
 
       </div>
 
-      <div>
-        <span>我的订单</span>
-        <span>积分Point</span>
-        <span>会员卡</span>
-        <span>客服</span>
+      <div class="profile_list"> 
+        <span class="profile_list_item"><i class="iconfont icon-dizhi"></i>我的地址</span>
+        <span class="profile_list_item"><i class="iconfont icon-jifen-xuanzhong"></i>积分Point</span>
+        <span class="profile_list_item"><i class="iconfont icon-huiyuan"></i>会员卡</span>
+        <span class="profile_list_item"><i class="iconfont icon-kefu"></i>客服</span>
       </div>
 
     </div>
@@ -44,6 +46,11 @@
 import HeaderBar from "@/components/HeaderBar/HeaderBar.vue"
 
 export default {
+  data(){
+    return {
+      imgSrc:require('../../assets/images/user-img.png')
+    }
+  },
   components:{
     HeaderBar
   }
@@ -51,10 +58,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.main {
-  margin-top: 50px;
-  position: absolute;
-  z-index: 1000;
-  width: 100%;
-}
+@import "../../assets/css/Profile/Profile.less";
 </style>

@@ -6,6 +6,48 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "6978098",
+      "name": "地址",
+      "font_class": "dizhi",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "14110603",
+      "name": "会员",
+      "font_class": "huiyuan",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "15631430",
+      "name": "积分-选中",
+      "font_class": "jifen-xuanzhong",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
+      "icon_id": "21205106",
+      "name": "客服",
+      "font_class": "kefu",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "911040",
+      "name": "back",
+      "font_class": "back",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "21269788",
+      "name": "back",
+      "font_class": "back-copy",
+      "unicode": "e6fa",
+      "unicode_decimal": 59130
+    },
+    {
       "icon_id": "6664190",
       "name": "order",
       "font_class": "order",

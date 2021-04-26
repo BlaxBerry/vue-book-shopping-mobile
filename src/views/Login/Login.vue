@@ -1,10 +1,12 @@
 <template>
   <div id="login">
-        <div>
-            <a href="javascript:;" class="go_back" @click="$router.go(-1)"><i class="iconfont"></i> back</a>
-        </div>
 
         <div class="login_heder">
+            <div class="go_back">
+                <a href="javascript:;" @click="$router.go(-1)">
+                    <i class="iconfont icon-back">返回</i>
+                </a>
+            </div>
             <h1 class="login_logo">外卖</h1>
         </div>
 
@@ -36,9 +38,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-#login {
-    width: 100%;
-    height: 100vh;
-    background-color: #fff;
-}
+@import "../../assets/css/Login/Login.less";
 </style>
