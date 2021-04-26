@@ -1,0 +1,37 @@
+{
+  "id": "2513848",
+  "name": "vue-外卖Web App",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "6664190",
+      "name": "order",
+      "font_class": "order",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "7239492",
+      "name": "home",
+      "font_class": "home",
+      "unicode": "e6f9",
+      "unicode_decimal": 59129
+    },
+    {
+      "icon_id": "15383966",
+      "name": "个人",
+      "font_class": "geren",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "18727235",
+      "name": "search",
+      "font_class": "search",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    }
+  ]
+}
