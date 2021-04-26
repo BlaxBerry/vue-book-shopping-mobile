@@ -12,9 +12,8 @@
     <Swiper></Swiper>
 
     <!-- 附近商家 -->
-
-    <!-- 商品列表 -->
-
+    <ShopList></ShopList>
+    
   </div>
 </template>
 
@@ -23,11 +22,14 @@
 import HeaderBar from "@/components/HeaderBar/HeaderBar.vue"
 // 导入 轮播图组件
 import Swiper from "@/views/Home/Swiper.vue"
+// 导入 商家列表
+import ShopList from "@/components/ShopList/ShopList.vue"
 
 export default {
   components:{
     HeaderBar,
-    Swiper
+    Swiper,
+    ShopList
   }
 }
 </script>
