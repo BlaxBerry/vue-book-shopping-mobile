@@ -5,7 +5,7 @@
     <router-view/>
 
     <!-- 底部导航栏 -->
-    <FooterGuide></FooterGuide>
+    <FooterGuide v-show="$route.meta.showFooterGuide"></FooterGuide>
 
   </div>
 </template>

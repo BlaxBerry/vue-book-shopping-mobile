@@ -13,7 +13,8 @@ export default new VueRouter({
         component: () =>
             import ("../views/Home/Home.vue"),
         meta: {
-            title: "手机外卖App"
+            title: "手机外卖",
+            showFooterGuide: true
         }
     }, {
         // 搜索页
@@ -21,7 +22,8 @@ export default new VueRouter({
         component: () =>
             import ("../views/Search/Search.vue"),
         meta: {
-            title: "搜索"
+            title: "搜索",
+            showFooterGuide: true
         }
     }, {
         // 订单页
@@ -29,7 +31,8 @@ export default new VueRouter({
         component: () =>
             import ("../views/Order/Order.vue"),
         meta: {
-            title: "订单"
+            title: "订单列表",
+            showFooterGuide: true
         }
     }, {
         // 个人页
@@ -37,7 +40,13 @@ export default new VueRouter({
         component: () =>
             import ("../views/Profile/Profile.vue"),
         meta: {
-            title: "个人中心"
+            title: "个人中心",
+            showFooterGuide: true
         }
+    }, {
+        // 登陆界面
+        path: '/login',
+        component: () =>
+            import ("../views/Login/Login.vue"),
     }]
 })
