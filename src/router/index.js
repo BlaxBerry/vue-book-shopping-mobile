@@ -1,30 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home/Home.vue'
 
 Vue.use(VueRouter)
-
-// const routes = [{
-//         path: '/',
-//         name: 'Home',
-//         component: Home
-//     },
-//     // {
-//     //     path: '/about',
-//     //     name: 'About',
-//     //     // route level code-splitting
-//     //     // this generates a separate chunk (about.[hash].js) for this route
-//     //     // which is lazy-loaded when the route is visited.
-//     //     component: () =>
-//     //         import ( /* webpackChunkName: "about" */ '../views/About.vue')
-//     // }
-// ]
-
-// const router = new VueRouter({
-//     routes
-// })
-
-// export default router
 
 export default new VueRouter({
     routes: [{
@@ -34,21 +11,33 @@ export default new VueRouter({
         // 首页
         path: '/home',
         component: () =>
-            import ("../views/Home/Home.vue")
+            import ("../views/Home/Home.vue"),
+        meta: {
+            title: "手机外卖App"
+        }
     }, {
         // 搜索页
         path: '/search',
         component: () =>
-            import ("../views/Search/Search.vue")
+            import ("../views/Search/Search.vue"),
+        meta: {
+            title: "搜索"
+        }
     }, {
         // 订单页
         path: '/order',
         component: () =>
-            import ("../views/Order/Order.vue")
+            import ("../views/Order/Order.vue"),
+        meta: {
+            title: "订单"
+        }
     }, {
         // 个人页
         path: '/profile',
         component: () =>
-            import ("../views/Profile/Profile.vue")
+            import ("../views/Profile/Profile.vue"),
+        meta: {
+            title: "个人中心"
+        }
     }]
 })

@@ -1,12 +1,25 @@
 <template>
-  <div>
-    首页
+  <div id="home">
+    <!-- 首页 -->
+
+    <!-- 头部标题栏 -->
+    <HeaderBar></HeaderBar>
+
+    <!-- 附近商家 -->
+
+    <!-- 商品列表 -->
+
   </div>
 </template>
 
 <script>
-export default {
+// 导入 头部标题栏
+import HeaderBar from "@/components/HeaderBar/HeaderBar.vue"
 
+export default {
+  components:{
+    HeaderBar
+  }
 }
 </script>
 

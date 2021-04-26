@@ -1,12 +1,22 @@
 <template>
   <div>
-    个人页
+    <!-- 个人页 -->
+
+    <!-- 头部标题栏 -->
+    <HeaderBar></HeaderBar>    
+
+    
   </div>
 </template>
 
 <script>
-export default {
+// 导入 头部标题栏
+import HeaderBar from "@/components/HeaderBar/HeaderBar.vue"
 
+export default {
+  components:{
+    HeaderBar
+  }
 }
 </script>
 
