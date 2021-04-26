@@ -7,25 +7,28 @@
                     <i class="iconfont icon-back">返回</i>
                 </a>
             </div>
-            <h1 class="login_logo">外卖</h1>
+            <h1 class="login_logo">外卖点餐</h1>
         </div>
 
         <div class="login_content">
-            <div>
-                <a href="javascript;;">密码登陆</a>
-                <a href="javascript;;">手机登陆</a>
+            <div class="tab_nav">
+                <span class="underline">密码登陆</span>
+                <span>手机登陆</span>
             </div>
-            <div>
+            <div class="tab_content">
+                <input type="text" placeholder="用户名">
+                <input type="text" placeholder="密码">
+            </div>
+            <div class="tab_content"> 
                 <input type="text">
                 <input type="text">
             </div>
-            <div>
-                <input type="text">
-                <input type="text">
-            </div>
-            <span>温馨提示：未注册的账号登陆时将被自动注册，且代表已经同意<a href="javascript:;">《用户服务协议》</a></span>
+        </div>
+
+        <div class="login_footer">
+            <span>温馨提示：未注册的账号登陆时将被自动注册，且代表已经同意<a href="javascript:;" class="attention">《用户服务协议》</a></span>
             <button>登陆</button>
-            <a href="">关于我们</a>
+            <a href="javascript:;">关于我们</a>
         </div>
 
   </div>
@@ -33,7 +36,12 @@
 
 <script>
 export default {
-
+    data(){
+        return {
+            // tab栏内容显示隐藏
+            showNavContent:true
+        }
+    }
 }
 </script>
 

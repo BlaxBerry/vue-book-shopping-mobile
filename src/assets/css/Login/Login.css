@@ -2,10 +2,78 @@
   width: 100%;
   height: 100vh;
   background-color: #fff;
+  box-sizing: border-box;
 }
 #login .login_heder .go_back {
   height: 40px;
   background-color: #008080;
   line-height: 40px;
   padding-left: 20px;
+}
+#login .login_heder .go_back a {
+  color: #fff;
+}
+#login .login_heder .login_logo {
+  font-size: 50px;
+  font-weight: 700;
+  color: #008080;
+  text-align: center;
+  margin-top: 50px;
+}
+#login .login_content {
+  margin-top: 30px;
+  text-align: center;
+}
+#login .login_content .tab_nav {
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: 10px;
+}
+#login .login_content .tab_nav span {
+  font-weight: 700;
+  padding: 0 20px 8px;
+  font-size: 18px;
+}
+#login .login_content .tab_nav .underline {
+  border-bottom: thick solid #008080;
+  color: #008080;
+}
+#login .login_content .tab_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#login .login_content .tab_content input {
+  width: 70%;
+  height: 40px;
+  margin-bottom: 20px;
+  box-shadow: 1px 3px 3px 3px #ccc;
+  color: #ccc;
+  font-size: 25px;
+  padding-left: 20px;
+}
+#login .login_content .tab_content input::placeholder {
+  color: #ccc;
+  font-size: 20px;
+}
+#login .login_footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 15%;
+  line-height: 1.5;
+}
+#login .login_footer button {
+  outline: none;
+  border: none;
+  height: 50px;
+  width: 110%;
+  background-color: #42b983;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin: 15px;
+}
+#login .login_footer .attention {
+  color: #008080;
 }
