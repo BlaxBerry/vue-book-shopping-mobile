@@ -3,7 +3,10 @@
     <!-- 首页 -->
 
     <!-- 头部标题栏 -->
-    <HeaderBar></HeaderBar>
+    <HeaderBar>
+      <span slot="left_search" class="left_search"><i class="iconfont icon-search"></i></span>
+      <span slot="right_login" class="right_login">登陆｜注册</span>
+    </HeaderBar>
 
     <!-- 附近商家 -->
 
