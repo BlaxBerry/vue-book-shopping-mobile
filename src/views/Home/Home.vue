@@ -8,6 +8,9 @@
       <span slot="right_login" class="right_login">登陆｜注册</span>
     </HeaderBar>
 
+    <!-- 轮播小图标 nav -->
+    <Swiper></Swiper>
+
     <!-- 附近商家 -->
 
     <!-- 商品列表 -->
@@ -18,10 +21,13 @@
 <script>
 // 导入 头部标题栏
 import HeaderBar from "@/components/HeaderBar/HeaderBar.vue"
+// 导入 轮播图组件
+import Swiper from "@/views/Home/Swiper.vue"
 
 export default {
   components:{
-    HeaderBar
+    HeaderBar,
+    Swiper
   }
 }
 </script>
