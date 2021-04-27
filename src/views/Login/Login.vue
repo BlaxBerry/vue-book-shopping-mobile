@@ -7,7 +7,7 @@
                     <i class="iconfont icon-back">返回</i>
                 </a>
             </div>
-            <h1 class="login_logo">外卖点餐</h1>
+            <h1 class="login_logo">IT 图书商城</h1>
         </div>
 
         <div class="login_content">

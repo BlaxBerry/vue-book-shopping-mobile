@@ -7,14 +7,14 @@
      <span>首页</span>
    </router-link>
 
-   <router-link to="/search" class="guide_item" :class="$route.path==='/search'?'active':''">
-     <span><i class="iconfont icon-search"></i></span>
-     <span>搜索</span>
+   <router-link to="/category" class="guide_item" :class="$route.path==='/category'?'active':''">
+     <span><i class="iconfont icon-kinds"></i></span>
+     <span>图书分类</span>
    </router-link>
 
-   <router-link to="/order" class="guide_item" :class="$route.path==='/order'?'active':''">
-     <span><i class="iconfont icon-order"></i></span>
-     <span>订单</span>
+   <router-link to="/cart" class="guide_item" :class="$route.path==='/cart'?'active':''">
+     <span><i class="iconfont icon-cart_brief"></i></span>
+     <span>购物车</span>
    </router-link>
 
    <router-link to="/profile" class="guide_item" :class="$route.path==='/profile'?'active':''">

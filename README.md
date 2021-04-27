@@ -1,2 +1,2 @@
-# vue-Delivery-Web-App（SPA）
-# 外卖手机端
+# vue-ITbook-shop-App（SPA）
+# IT图书商城手机端

@@ -5,7 +5,7 @@
     <!-- 头部标题栏 -->
     <HeaderBar>
       <span slot="left_search" class="left_search"><i class="iconfont icon-search"></i></span>
-      <span slot="right_login" class="right_login" @click="$router.push('/login')">登陆｜注册</span>
+      <span slot="right_login" class="right_login" @click="$router.push('/login')"><i class="iconfont icon-login"><i/></i></span>
     </HeaderBar>
 
     <!-- 轮播小图标 nav -->

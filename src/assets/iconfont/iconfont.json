@@ -1,37 +1,58 @@
 {
   "id": "2513848",
-  "name": "vue-外卖Web App",
+  "name": "vue-书城",
   "font_family": "iconfont",
   "css_prefix_text": "icon-",
   "description": "",
   "glyphs": [
     {
-      "icon_id": "6978098",
-      "name": "地址",
-      "font_class": "dizhi",
-      "unicode": "e624",
-      "unicode_decimal": 58916
+      "icon_id": "8827143",
+      "name": "login",
+      "font_class": "login",
+      "unicode": "e93c",
+      "unicode_decimal": 59708
     },
     {
-      "icon_id": "14110603",
-      "name": "会员",
-      "font_class": "huiyuan",
-      "unicode": "e626",
-      "unicode_decimal": 58918
+      "icon_id": "5688361",
+      "name": "php",
+      "font_class": "php",
+      "unicode": "e787",
+      "unicode_decimal": 59271
     },
     {
-      "icon_id": "15631430",
-      "name": "积分-选中",
-      "font_class": "jifen-xuanzhong",
-      "unicode": "e629",
-      "unicode_decimal": 58921
+      "icon_id": "6496026",
+      "name": "Vue",
+      "font_class": "Vue",
+      "unicode": "e799",
+      "unicode_decimal": 59289
     },
     {
-      "icon_id": "21205106",
-      "name": "客服",
-      "font_class": "kefu",
-      "unicode": "e61a",
-      "unicode_decimal": 58906
+      "icon_id": "12600760",
+      "name": "js",
+      "font_class": "js",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "12600761",
+      "name": "jsx",
+      "font_class": "jsx",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "2207680",
+      "name": "icon-cart_brief",
+      "font_class": "cart_brief",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "1127375",
+      "name": "分类",
+      "font_class": "kinds",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
     },
     {
       "icon_id": "911040",

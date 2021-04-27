@@ -13,25 +13,25 @@ export default new VueRouter({
         component: () =>
             import ("../views/Home/Home.vue"),
         meta: {
-            title: "手机外卖",
+            title: "IT 图书商城",
             showFooterGuide: true
         }
     }, {
         // 搜索页
-        path: '/search',
+        path: '/category',
         component: () =>
             import ("../views/Search/Search.vue"),
         meta: {
-            title: "搜索",
+            title: "图书分类",
             showFooterGuide: true
         }
     }, {
         // 订单页
-        path: '/order',
+        path: '/cart',
         component: () =>
             import ("../views/Order/Order.vue"),
         meta: {
-            title: "订单列表",
+            title: "购物车",
             showFooterGuide: true
         }
     }, {
