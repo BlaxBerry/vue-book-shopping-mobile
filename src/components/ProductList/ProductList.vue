@@ -94,7 +94,7 @@ export default {
       // page : 1 
 
     GetHomeGoodsData(this.goods.type,this.goods.page).then(res=>{
-      console.log("111",res.goods);
+      // console.log("111",res.goods);
       this.goods.list = res.goods.data
   
     }).catch(err=>{

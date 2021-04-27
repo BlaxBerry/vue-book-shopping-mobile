@@ -56,7 +56,7 @@ export default {
   created(){
     // 获取首页banner轮播图
     GetHomeAllData().then(res=>{
-      console.log(res);
+      console.log("Home首页所有数据",res);
       // banner Swiper轮播图
       this.bannerSwiperList = res.slides
       // 推荐商品栏
@@ -73,5 +73,6 @@ export default {
 <style lang="less" scoped>
 #home {
   position: relative;
+  overflow: hidden;
 }
 </style>

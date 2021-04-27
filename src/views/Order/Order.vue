@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 订单页 -->
-
+    
     <!-- 头部标题栏 -->
     <HeaderBar></HeaderBar>
   </div>

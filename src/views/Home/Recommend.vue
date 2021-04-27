@@ -38,13 +38,14 @@ export default {
 .recommend {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     text-align: center;
     padding: 10px 0 30px;
     border-bottom: 2px solid #ccc;
     margin-bottom: 10px;
 
     .recommend_item {
-        flex: 1;
+        flex: 20%;
         font-size: 15px;
 
         img {
