@@ -20,7 +20,7 @@ export default new VueRouter({
         // 搜索页
         path: '/category',
         component: () =>
-            import ("../views/Search/Search.vue"),
+            import ("../views/Category/Category.vue"),
         meta: {
             title: "图书分类",
             showFooterGuide: true
@@ -29,7 +29,7 @@ export default new VueRouter({
         // 订单页
         path: '/cart',
         component: () =>
-            import ("../views/Order/Order.vue"),
+            import ("../views/Cart/Cart.vue"),
         meta: {
             title: "购物车",
             showFooterGuide: true

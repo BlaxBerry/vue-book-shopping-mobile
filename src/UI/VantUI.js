@@ -10,10 +10,20 @@ import {
     // 懒加载
     Lazyload,
     // 购物车徽标
-    Badge
+    Badge,
+    // 侧边栏
+    Sidebar,
+    SidebarItem,
+    //折叠面板
+    Collapse,
+    CollapseItem
 } from 'vant';
 
 Vue.use(Swipe)
     .use(SwipeItem)
     .use(Lazyload, { loading: require('../assets/images/lazy-load.png') })
-    .use(Badge);
+    .use(Badge)
+    .use(Sidebar)
+    .use(SidebarItem)
+    .use(Collapse)
+    .use(CollapseItem);
