@@ -1,0 +1,33 @@
+        .tab_control {
+            display: flex;
+            position: sticky;
+            top: 50px;
+            z-index: 99;
+            text-align: center;
+            height: 40px;
+            width: 100%;
+            background-color: #fff;
+            line-height: 40px;
+            font-size: 15px;
+           
+
+            .tab_control-item{
+                flex: 1;
+
+                span {
+                    padding: 5px;
+                }
+                
+            }
+
+            // 选中的样式
+            .active {
+                color:  #42b983;
+
+                span {
+                    border-bottom: thick solid #42b983;
+                    
+                }
+            }
+        }
+    

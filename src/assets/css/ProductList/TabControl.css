@@ -1,0 +1,24 @@
+.tab_control {
+  display: flex;
+  position: sticky;
+  top: 50px;
+  z-index: 99;
+  text-align: center;
+  height: 40px;
+  width: 100%;
+  background-color: #fff;
+  line-height: 40px;
+  font-size: 15px;
+}
+.tab_control .tab_control-item {
+  flex: 1;
+}
+.tab_control .tab_control-item span {
+  padding: 5px;
+}
+.tab_control .active {
+  color: #42b983;
+}
+.tab_control .active span {
+  border-bottom: thick solid #42b983;
+}

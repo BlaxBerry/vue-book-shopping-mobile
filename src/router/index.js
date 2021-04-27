@@ -48,5 +48,14 @@ export default new VueRouter({
         path: '/login',
         component: () =>
             import ("../views/Login/Login.vue"),
+    }, {
+        // 详情页
+        path: '/detail',
+        component: () =>
+            import ("../views/Detail/Detail.vue"),
+        meta: {
+            title: "商品详情",
+            showFooterGuide: true
+        }
     }]
 })

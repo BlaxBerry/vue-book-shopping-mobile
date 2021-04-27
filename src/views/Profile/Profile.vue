@@ -17,7 +17,7 @@
           <span class="go_login">
             <!-- 跳转 -->
             <router-link to="/login">
-              <i class="iconfont icon-back-copy"></i>
+              <i class="iconfont icon-login"></i>
             </router-link>
           </span>
       </div>

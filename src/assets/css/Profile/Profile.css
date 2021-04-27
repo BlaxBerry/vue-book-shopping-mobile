@@ -28,7 +28,8 @@
   height: 30%;
 }
 .main .user_info .go_login a .iconfont {
-  font-size: 22px;
+  font-size: 30px;
+  color: #333;
 }
 .main .profile_list {
   display: flex;
