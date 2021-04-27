@@ -6,9 +6,10 @@
 }
 .main_box .left_menu {
   width: 130px;
-  height: 500px;
+  height: 100%;
   position: fixed;
   top: 100px;
+  overflow: scroll;
 }
 .main_box .left_menu .van-collapse-item {
   text-align: center;
@@ -22,10 +23,10 @@
   background-color: #fff;
 }
 .main_box .left_menu .van-sidebar /deep/ .van-sidebar-item--select::before {
-  background-color: #008080;
+  background-color: #42b983;
 }
 .main_box .left_menu .van-sidebar /deep/ .van-sidebar-item--select .van-sidebar-item__text {
-  color: #008080;
+  color: #42b983;
 }
 .main_box .right_top_order_tab {
   flex: 1;
@@ -44,4 +45,5 @@
   left: 130px;
   right: 0;
   height: 100vh;
+  padding: 0 5px;
 }

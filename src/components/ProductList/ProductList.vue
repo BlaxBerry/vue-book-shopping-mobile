@@ -48,7 +48,7 @@ export default {
       // tab-control 选项标题
       tabControlItemTitle:['畅销','精选','新书'],
       // 被点击的 tab-control-item 的index
-      tabControlItemNumber:1,
+      tabControlItemNumber:0,
 
       // 商品分页模型
       goods:{

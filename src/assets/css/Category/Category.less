@@ -7,9 +7,10 @@
     // 左侧
     .left_menu {
         width: 130px;
-        height: 500px;
+        height: 100%;
         position: fixed;
         top:100px;
+        overflow: scroll;
         
      // 选项菜单
       .van-collapse-item {
@@ -26,10 +27,10 @@
         // 选中的选项
         /deep/.van-sidebar-item--select {
           &::before{
-            background-color: #008080;
+            background-color: #42b983;
           }
           .van-sidebar-item__text {
-            color: #008080;
+            color: #42b983;
           }
           
         }
@@ -57,5 +58,6 @@
         left: 130px;
         right: 0;
         height: 100vh;
+        padding: 0 5px;
     }
 }

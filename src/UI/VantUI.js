@@ -16,7 +16,13 @@ import {
     SidebarItem,
     //折叠面板
     Collapse,
-    CollapseItem
+    CollapseItem,
+    // 卡片
+    Card,
+    // 空白状态
+    Empty,
+    // 按钮
+    Button
 } from 'vant';
 
 Vue.use(Swipe)
@@ -26,4 +32,7 @@ Vue.use(Swipe)
     .use(Sidebar)
     .use(SidebarItem)
     .use(Collapse)
-    .use(CollapseItem);
+    .use(CollapseItem)
+    .use(Card)
+    .use(Empty)
+    .use(Button);
