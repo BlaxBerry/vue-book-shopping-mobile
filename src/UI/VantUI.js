@@ -1,6 +1,6 @@
 import Vue from 'vue';
 // import Vant from 'vant';
-// import 'vant/lib/index.css';
+import 'vant/lib/index.css';
 // Vue.use(Vant);
 
 import {
@@ -8,9 +8,12 @@ import {
     Swipe,
     SwipeItem,
     // 懒加载
-    Lazyload
+    Lazyload,
+    // 购物车徽标
+    Badge
 } from 'vant';
 
 Vue.use(Swipe)
     .use(SwipeItem)
-    .use(Lazyload, { loading: require('../assets/images/lazy-load.png') });
+    .use(Lazyload, { loading: require('../assets/images/lazy-load.png') })
+    .use(Badge);

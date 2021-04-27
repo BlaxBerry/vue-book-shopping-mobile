@@ -23,6 +23,7 @@
                 :goodTitle="item.title"
                 :goodPrice="item.price"
                 :collectNumber="item.collects_count"
+                :goodID="item.id"
             >
             </GoodItem>
           </div>
@@ -109,6 +110,6 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 10px 10px 50px;
+  padding-bottom: 50px;
 }
 </style>

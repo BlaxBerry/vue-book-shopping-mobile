@@ -13,7 +13,11 @@
    </router-link>
 
    <router-link to="/cart" class="guide_item" :class="$route.path==='/cart'?'active':''">
-     <span><i class="iconfont icon-cart_brief"></i></span>
+     <span>
+      <van-badge :content="20" max="9">
+         <i class="iconfont icon-cart_brief"></i>
+      </van-badge>
+     </span>
      <span>购物车</span>
    </router-link>
 

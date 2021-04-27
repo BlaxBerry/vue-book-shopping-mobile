@@ -15,7 +15,7 @@ export default {
     data(){
         return {
             // tab-control-itenm
-            itemNumber:1
+            itemNumber:0
         }
     },
     props:{

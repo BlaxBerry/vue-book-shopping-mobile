@@ -1,6 +1,6 @@
 <template>
   <div class="recommend">
-      <div class="recommend_item" v-for="item in recommendList" :key="item.id">
+      <div class="recommend_item" v-for="item in recommendList.slice(0,4)" :key="item.id">
         <a @click="goDetail(item.id)">
             <img v-lazy="item.cover_url" alt="">
             <div>{{item.title}}</div>
@@ -38,19 +38,18 @@ export default {
 .recommend {
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     text-align: center;
-    padding: 10px 0 30px;
-    border-bottom: 2px solid #ccc;
+    padding: 10px 0 20px;
     margin-bottom: 10px;
 
     .recommend_item {
-        flex: 20%;
+        flex: 1;
         font-size: 15px;
 
         img {
-            height: 70px;
-            width: 70px;
+            height: 80px;
+            width: 80px;
             margin-bottom: 10px;
         }
     }

@@ -73,6 +73,6 @@ export default {
 <style lang="less" scoped>
 #home {
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
 }
 </style>

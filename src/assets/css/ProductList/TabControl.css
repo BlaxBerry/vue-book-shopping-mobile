@@ -9,6 +9,7 @@
   background-color: #fff;
   line-height: 40px;
   font-size: 15px;
+  padding-bottom: 5px;
 }
 .tab_control .tab_control-item {
   flex: 1;
