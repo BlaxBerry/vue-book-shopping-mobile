@@ -4,12 +4,11 @@
   top: 50px;
   z-index: 99;
   text-align: center;
-  height: 40px;
+  height: 50px;
   width: 100%;
   background-color: #fff;
   line-height: 40px;
   font-size: 15px;
-  padding-bottom: 5px;
 }
 .tab_control .tab_control-item {
   flex: 1;

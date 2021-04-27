@@ -1,15 +1,14 @@
 .main_box {
   margin-top: 50px;
   box-sizing: border-box;
+  display: flex;
+  position: relative;
 }
 .main_box .left_menu {
-  width: 125px;
-  float: left;
-  height: 100%;
-  padding: 20px 0 ;
+  width: 130px;
+  height: 500px;
   position: fixed;
-  overflow: scroll;
-  background-color: #fff;
+  top: 100px;
 }
 .main_box .left_menu .van-collapse-item {
   text-align: center;
@@ -28,21 +27,21 @@
 .main_box .left_menu .van-sidebar /deep/ .van-sidebar-item--select .van-sidebar-item__text {
   color: #008080;
 }
-.main_box .right_box {
-  background-color: orange;
-  position: relative;
-  float: left;
-  left: 125px;
-  width: 100%;
-}
-.main_box .right_box .right_top_order_tab {
-  width: 100%;
+.main_box .right_top_order_tab {
+  flex: 1;
+  float: right;
   height: 50px;
   position: fixed;
+  top: 50px;
+  right: 0;
+  left: 130px;
   z-index: 2;
-  background-color: orangered;
 }
-.main_box .right_box .right_bottom_list {
-  margin-top: 50px;
-  height: 1000px;
+.main_box .right_bottom_list {
+  flex: 1;
+  position: absolute;
+  top: 50px;
+  left: 130px;
+  right: 0;
+  height: 100vh;
 }
