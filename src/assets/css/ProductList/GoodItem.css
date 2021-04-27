@@ -1,0 +1,31 @@
+.GoodItem {
+  width: 50%;
+  padding-bottom: 20px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.GoodItem img {
+  width: 100%;
+  border-radius: 5px;
+}
+.GoodItem .good_info {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.GoodItem .good_info .title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+.GoodItem .good_info .price {
+  color: #ff0000;
+  margin-bottom: 10px;
+}
+.GoodItem .good_info .collect .iconfont {
+  color: #ffa500;
+  font-size: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
