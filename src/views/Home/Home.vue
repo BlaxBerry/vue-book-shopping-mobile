@@ -17,6 +17,8 @@
     <!-- 商品列表 -->
     <ProductList></ProductList>
     
+    <!-- 回到顶部小图标 -->
+    <BackToTop></BackToTop>
   </div>
 </template>
 
@@ -29,6 +31,8 @@ import Swiper from "@/views/Home/Swiper.vue"
 import Recommend from "@/views/Home/Recommend.vue"
 // 导入 商家列表
 import ProductList from "@/components/ProductList/ProductList.vue"
+// 导入 回到顶部小图标
+import BackToTop from "@/components/BackToTop/BackToTop.vue"
 
 // 导入 api接口
 import {GetHomeAllData} from "@/network/api.js"
@@ -46,7 +50,8 @@ export default {
     HeaderBar,
     Swiper,
     Recommend,
-    ProductList
+    ProductList,
+    BackToTop
   },
   created(){
     // 获取首页banner轮播图
@@ -66,5 +71,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
+#home {
+  position: relative;
+}
 </style>
