@@ -4,7 +4,7 @@
 
         <van-swipe :autoplay="3000" indicator-color="#42b983">
           <van-swipe-item v-for="item in swiperList" :key="item.id">
-              <img v-lazy="item.img_url" alt="">
+              <img :src="item.img_url" alt="">
           </van-swipe-item>
         </van-swipe>
 
@@ -33,8 +33,8 @@ export default {
         width: 100%;
     }
     .van-swipe {
-        height: 100%;
         position: relative;
+        width: 100%;
     }
 
     .van-swipe-item {

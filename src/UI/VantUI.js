@@ -13,4 +13,4 @@ import {
 
 Vue.use(Swipe)
     .use(SwipeItem)
-    .use(Lazyload);
+    .use(Lazyload, { loading: require('../assets/images/lazy-load.png') });

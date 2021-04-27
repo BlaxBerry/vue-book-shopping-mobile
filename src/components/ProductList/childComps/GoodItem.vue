@@ -1,6 +1,6 @@
 <template>
   <div class="GoodItem">
-      <img :src="goodImg" alt="">
+      <img v-lazy="goodImg" alt="">
       <div class="good_info">
         <span class="title">{{goodTitle}}</span>
         <span class="price">¥ {{goodPrice}}</span>
