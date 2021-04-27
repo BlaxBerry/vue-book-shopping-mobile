@@ -9,7 +9,7 @@
     </HeaderBar>
 
     <!-- 轮播小图标 nav -->
-    <Swiper></Swiper>
+    <Swiper :swiperList="bannerSwiperList"></Swiper>
 
     <!-- 附近商家 -->
     <ShopList></ShopList>
@@ -25,11 +25,29 @@ import Swiper from "@/views/Home/Swiper.vue"
 // 导入 商家列表
 import ShopList from "@/components/ShopList/ShopList.vue"
 
+// 导入 api接口
+import {GetHomeAllData} from "@/network/api.js"
+
 export default {
+  data(){
+    return {
+      bannerSwiperList:[]
+    }
+  },
   components:{
     HeaderBar,
     Swiper,
     ShopList
+  },
+  created(){
+    // 获取首页banner轮播图
+    GetHomeAllData().then(res=>{
+      console.log(res);
+      this.bannerSwiperList = res.slides
+
+    }).catch(err=>{
+      console.log(err);
+    })
   }
 }
 </script>
