@@ -34,7 +34,26 @@
         ></TabControl>
 
         <!-- 选项对应的内容 -->
-        <div class="detail_info" v-html="book.detail.details"></div>
+        <!-- 详细内容 -->
+        <div class="detail_info" v-html="book.detail.details"
+            v-show="tabControlItemNumber==0"
+        ></div>
+        <!-- 评论 -->
+        <div class="comments"
+            v-show="tabControlItemNumber==1"
+        ></div>
+        <!-- 相关内容 -->
+        <div class="likes"
+            v-show="tabControlItemNumber==2">
+            <GoodItem 
+                v-for="(item) in book.like_goods" :key="item.id"
+                :goodImg="item.cover_url"
+                :goodTitle="item.title"
+                :goodPrice="item.price"
+                :collectNumber="item.collects_count"
+                :goodID="item.id">
+            </GoodItem>
+        </div>
   </div>
 </template>
 
@@ -43,6 +62,8 @@
 import HeaderBar from "@/components/HeaderBar/HeaderBar.vue"
 // 引入 Tab-control
 import TabControl from "@/components/ProductList/childComps/TabControl.vue"
+// 引入 GoodList商品列表
+import GoodItem from "@/components/ProductList/childComps/GoodItem.vue"
 
 // 导入 api接口
 import {GetDetailData} from "@/network/api.js"
@@ -59,14 +80,15 @@ export default {
                 comments:[]
             },
             // tab-control选项卡 选项标题
-            tabControlItemTitle:['销量','价格','评价'],
+            tabControlItemTitle:['商品概述','热门评论','相关推荐'],
             // 被点击的 tab-control-item 的index
             tabControlItemNumber:0,
         }
     },
     components:{
         HeaderBar,
-        TabControl 
+        TabControl,
+        GoodItem 
     },
     created(){
         // 接受的 商品 id

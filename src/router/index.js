@@ -3,6 +3,14 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
+
+// 防止重复点击相同路由
+const VueRouterPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(to) {
+    return VueRouterPush.call(this, to).catch(err => err)
+}
+
+
 export default new VueRouter({
     routes: [{
         path: '/',

@@ -1,0 +1,42 @@
+.detail {
+  margin-top: 50px;
+}
+.detail img {
+  max-width: 100%;
+}
+.detail .van-card__content .van-card__title {
+  height: 30px;
+  line-height: 30px;
+  font-size: 25px;
+  margin: 10px 0;
+}
+.detail .van-card__content .van-card__desc {
+  height: 20px;
+  font-size: 15px;
+  margin: 10px 0;
+}
+.detail .van-card__content .van-card__price {
+  height: 30px;
+  line-height: 30px;
+  margin: 5px 5px 0 0;
+}
+.detail .van-card__content .van-card__price .van-card__price-currency {
+  font-size: 15px;
+}
+.detail .van-card__content .van-card__price .van-card__price-integer {
+  margin-left: 5px;
+  font-size: 20px;
+}
+.detail /deep/ .detail_info {
+  padding-bottom: 50px;
+  width: 100%;
+}
+.detail /deep/ .detail_info img {
+  width: 100%;
+}
+.detail .likes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-bottom: 50px;
+}
