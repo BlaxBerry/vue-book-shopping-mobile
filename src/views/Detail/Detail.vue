@@ -16,6 +16,7 @@
           :price="Number(book.detail.price).toFixed(2)"
           :desc="book.detail.description"
           :title="book.detail.title"
+          :origin-price="(book.detail.price*1.5).toFixed(2)"
         >
           <template #tags>
             <van-tag plain type="danger">打折</van-tag>
@@ -97,8 +98,39 @@ export default {
         max-width: 100%;
     }
 
+    // 商品卡片
+    .van-card__content {
+
+        .van-card__title {
+            height: 30px;
+            line-height: 30px;
+            font-size: 25px;
+            margin: 10px 0;
+        }
+
+        .van-card__desc {
+            height: 20px;
+            font-size: 15px;
+            margin: 10px 0;
+        }
+
+        .van-card__price {
+            height: 30px;
+            line-height: 30px;
+            margin: 10px 5px 0 0;
+            .van-card__price-currency {
+                font-size: 15px;
+            }
+            .van-card__price-integer {
+                margin-left: 5px;
+                font-size: 20px;
+            }
+        }
+    }
+
     /deep/.detail_info {
         padding-bottom: 50px;
+        width: 100%;
         img {
             width: 100%;
         }
