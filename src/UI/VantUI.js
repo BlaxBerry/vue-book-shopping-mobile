@@ -30,7 +30,9 @@ import {
     // 表单
     Form,
     // 输入框
-    Field
+    Field,
+    // 轻提示
+    Toast
 } from 'vant';
 
 Vue.use(Swipe)
@@ -47,4 +49,5 @@ Vue.use(Swipe)
     .use(Tag)
     .use(VanImage)
     .use(Form)
-    .use(Field);
+    .use(Field)
+    .use(Toast);

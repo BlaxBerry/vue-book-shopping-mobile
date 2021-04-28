@@ -19,3 +19,6 @@ export const GetCategoryOrderList = (id = 0, page = 1, order = "sales") =>
 
 // detail详情页数据
 export const GetDetailData = (id) => request.get('/goods/' + id)
+
+// login 注册
+export const Register = (params) => request.post('/auth/register', params)

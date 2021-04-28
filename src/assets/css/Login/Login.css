@@ -3,6 +3,7 @@
   height: 100vh;
   background-color: #fff;
   box-sizing: border-box;
+  overflow: hidden;
 }
 #login .login_heder .go_back {
   color: #fff;

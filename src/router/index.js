@@ -52,6 +52,11 @@ export default new VueRouter({
             showFooterGuide: true
         }
     }, {
+        // 注册界面
+        path: '/register',
+        component: () =>
+            import ("../views/Register/Register.vue"),
+    }, {
         // 登陆界面
         path: '/login',
         component: () =>
