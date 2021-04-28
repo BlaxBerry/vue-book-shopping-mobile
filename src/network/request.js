@@ -1,4 +1,5 @@
 import Vue from "vue"
+import Router from "../router/index"
 import axios from "axios"
 
 const instance = axios.create({
@@ -28,6 +29,18 @@ instance.interceptors.response.use(result => {
     return (result.data ? result.data : result)
 
 }, err => {
+    // 如果返回的结果提示401（身份权限），则提示问题点，并跳转登陆页
+    if (err.response.status == '401') {
+        Vue.prototype.$toast({
+            message: "请先登陆",
+            position: 'top',
+        });
+        setTimeout(() => {
+            Router.push('/login')
+        }, 1000)
+    }
+
+    // 只要是有错，先拦截处理，然后提示出错问题点
     if (err.response.data.errors != {}) {
         console.log("请求失败拦截器根据状态码处理的结果", err.response.data);
 
