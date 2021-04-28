@@ -22,8 +22,8 @@
             <van-tag plain type="danger">打折</van-tag>
           </template>
           <template #footer>
-            <van-button type="warning">加入购物车</van-button>
-            <van-button type="danger">立即购买</van-button>
+            <van-button type="warning" @click="addCart()">加入购物车</van-button>
+            <van-button type="danger" @click="goToCart">立即购买</van-button>
           </template>
         </van-card>
 
@@ -66,7 +66,12 @@ import TabControl from "@/components/ProductList/childComps/TabControl.vue"
 import GoodItem from "@/components/ProductList/childComps/GoodItem.vue"
 
 // 导入 api接口
-import {GetDetailData} from "@/network/api.js"
+import {
+  // 获取详商品情数据
+  GetDetailData,
+  // 添加到购物车
+  AddCart
+} from "@/network/api.js"
 
 export default {
     data(){
@@ -92,7 +97,7 @@ export default {
     },
     created(){
         // 接受的 商品 id
-        console.log(this.$route.query.id);
+        // console.log(this.$route.query.id);
         // console.log(this.book);
 
         // 获取详情页数据
@@ -108,6 +113,24 @@ export default {
           this.tabControlItemNumber = index;
           console.log(this.tabControlItemNumber);
         },
+
+        // 前往购物车
+        goToCart(){
+          this.$router.push('/cart')
+        },
+
+        // 加入购物车
+        addCart(){
+          AddCart({
+            goods_id:this.book.detail.id,
+            num:1
+          }).then(res=>{
+            console.log("添加购物车成功后",res);
+            if(res.status == '204'||res.status == '201'){
+              this.$toast.success('成功添加至购物车')
+            }
+          })
+        }
     }
 
 }

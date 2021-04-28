@@ -28,3 +28,22 @@ export const Login = (params) => request.post('/auth/login', params)
 
 // 退出登陆 logout
 export const Logout = () => request.post('/auth/logout')
+
+
+
+// 添加购物车
+// goods_id, num
+export const AddCart = (params) => request.post('/carts', params)
+
+// 修改购物车（商品数量）
+// params ={num:1}
+export const EditCart = (id, params) => request.put(`/carts/${id}`, params)
+
+// 购物车商品状态（全选/全不选）
+export const CheckedCart = (params) => request.patch('/carts/checked', params)
+
+// 获取全部购物车
+export const GetCart = (params = '') => request.get('/carts?' + params)
+
+// 删除购物车
+export const DeleteCart = (id) => request.delete(`/carts/${id}`)
