@@ -103,6 +103,11 @@ export default {
     ProductCard
   },
   created(){
+    // 加载提醒  
+    this.$toast.loading({
+      message: '加载中...',
+      forbidClick: true,
+    });
     //获取 分类页数据
     GetCategoryData().then(res=>{
       console.log("Category分类页所有数据",res);

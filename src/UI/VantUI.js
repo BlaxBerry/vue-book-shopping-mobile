@@ -35,7 +35,16 @@ import {
     Toast,
     // 单元格
     Cell,
-    CellGroup
+    CellGroup,
+    // 提交订单
+    SubmitBar,
+    // 复选框
+    Checkbox,
+    CheckboxGroup,
+    // 步进器
+    Stepper,
+    // 滑动单元格
+    SwipeCell
 } from 'vant';
 
 Vue.use(Swipe)
@@ -56,3 +65,8 @@ Vue.use(Swipe)
     .use(Toast)
     .use(Cell)
     .use(CellGroup)
+    .use(SubmitBar)
+    .use(Checkbox)
+    .use(CheckboxGroup)
+    .use(Stepper)
+    .use(SwipeCell);

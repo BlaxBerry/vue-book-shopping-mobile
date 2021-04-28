@@ -54,6 +54,11 @@ export default {
     BackToTop
   },
   created(){
+    // 加载提醒
+    this.$toast.loading({
+      message: '加载中...',
+      forbidClick: true,
+    });
     // 获取首页banner轮播图
     GetHomeAllData().then(res=>{
       console.log("Home首页所有数据",res);
