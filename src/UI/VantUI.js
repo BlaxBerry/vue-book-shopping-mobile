@@ -22,7 +22,11 @@ import {
     // 空白状态
     Empty,
     // 按钮
-    Button
+    Button,
+    // 标签
+    Tag,
+    // 图片
+    Image as VanImage
 } from 'vant';
 
 Vue.use(Swipe)
@@ -35,4 +39,6 @@ Vue.use(Swipe)
     .use(CollapseItem)
     .use(Card)
     .use(Empty)
-    .use(Button);
+    .use(Button)
+    .use(Tag)
+    .use(VanImage);
