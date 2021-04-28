@@ -9,6 +9,12 @@ const instance = axios.create({
 // 请求拦截
 instance.interceptors.request.use(config => {
     //授权login
+    const token = window.localStorage.getItem('token');
+    // 判断请求接口是否需要token
+    // 根据API接口需要
+    if (token) {
+        config.headers.Authorization = ' Bearer ' + token;
+    }
 
     //放行
     return config
@@ -19,7 +25,7 @@ instance.interceptors.request.use(config => {
 
 // 响应拦截
 instance.interceptors.response.use(result => {
-    return (result.data ? result.data : res)
+    return (result.data ? result.data : result)
 
 }, err => {
     if (err.response.data.errors != {}) {

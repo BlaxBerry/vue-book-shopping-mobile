@@ -32,7 +32,10 @@ import {
     // 输入框
     Field,
     // 轻提示
-    Toast
+    Toast,
+    // 单元格
+    Cell,
+    CellGroup
 } from 'vant';
 
 Vue.use(Swipe)
@@ -50,4 +53,6 @@ Vue.use(Swipe)
     .use(VanImage)
     .use(Form)
     .use(Field)
-    .use(Toast);
+    .use(Toast)
+    .use(Cell)
+    .use(CellGroup)

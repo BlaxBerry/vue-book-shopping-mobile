@@ -16,7 +16,7 @@
           </div>
           <span class="go_login">
             <!-- 跳转 -->
-            <router-link to="/login">
+            <router-link to="/register">
               <i class="iconfont icon-login"></i>
             </router-link>
           </span>
@@ -27,10 +27,17 @@
       </div>
 
       <div class="profile_list"> 
-        <span class="profile_list_item"><i class="iconfont icon-dizhi"></i>我的地址</span>
-        <span class="profile_list_item"><i class="iconfont icon-jifen-xuanzhong"></i>积分Point</span>
-        <span class="profile_list_item"><i class="iconfont icon-huiyuan"></i>会员卡</span>
-        <span class="profile_list_item"><i class="iconfont icon-kefu"></i>客服</span>
+
+        <van-cell title="我的地址" size="large" icon="location-o" label="描述信息" />
+
+        <van-cell title="单元格" size="large" icon="vip-card-o" />
+
+        <van-cell title="单元格" size="large" icon="bar-chart-o" />
+
+        <van-cell title="关于项目" size="large" icon="share-o"  s-link url="https://github.com/BlaxBerry/vue-book-shop-App"/>
+
+        <van-cell title="退出登陆" size="large" icon="delete-o" @click="toLogout"/>
+
       </div>
 
     </div>
@@ -45,6 +52,9 @@
 // 导入 头部标题栏
 import HeaderBar from "@/components/HeaderBar/HeaderBar.vue"
 
+// 导入 api接口
+import {Logout} from "@/network/api.js"
+
 export default {
   data(){
     return {
@@ -53,6 +63,24 @@ export default {
   },
   components:{
     HeaderBar
+  },
+  methods:{
+    toLogout(){
+      // 退出登陆
+      Logout().then(res=>{
+        console.log("退出登陆请求",res)
+        // if(res.status=='204'){
+          // 退出成功
+          this.$toast.success('退出登陆')
+          // 清除 存在本地的 token
+          window.localStorage.setItem('token','')
+          // 跳转页面
+          setTimeout(()=>{
+            this.$router.push('/register')
+          },1000)
+        // }
+      })
+    }
   }
 }
 </script>

@@ -25,3 +25,6 @@ export const Register = (params) => request.post('/auth/register', params)
 
 // login 登陆
 export const Login = (params) => request.post('/auth/login', params)
+
+// 退出登陆 logout
+export const Logout = () => request.post('/auth/logout')
