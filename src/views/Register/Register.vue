@@ -67,9 +67,17 @@
                 <div style="margin: 16px;">
                     <van-button block type="info" 
                         native-type="submit" color="#42b983">
-                        提交
+                        注册账号
                     </van-button>
                 </div>
+                <!-- 已有账号，立即登陆 -->
+                <div style="margin: 16px;">
+                    <van-button block type="info" color="#008080"
+                        to="/login">
+                        已有账号，立即登陆
+                    </van-button>
+                </div>
+
             </van-form>
 
             <!-- 底部 -->
@@ -125,7 +133,7 @@ export default {
                     name:this.username,
                     email:this.email,
                     password:this.password,
-                    assword_confirmation:this.checkPassword
+                    password_confirmation:this.checkPassword
                 }).then(res=>{
                     console.log("Register注册请求的响应数据",res);
                     // 根据响应结果判断是否可以注册
