@@ -26,7 +26,11 @@ import {
     // 标签
     Tag,
     // 图片
-    Image as VanImage
+    Image as VanImage,
+    // 表单
+    Form,
+    // 输入框
+    Field
 } from 'vant';
 
 Vue.use(Swipe)
@@ -41,4 +45,6 @@ Vue.use(Swipe)
     .use(Empty)
     .use(Button)
     .use(Tag)
-    .use(VanImage);
+    .use(VanImage)
+    .use(Form)
+    .use(Field);
