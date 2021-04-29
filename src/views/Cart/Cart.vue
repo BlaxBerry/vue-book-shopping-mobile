@@ -52,7 +52,8 @@
 
             <!-- 全选框 -->
             <van-checkbox 
-                v-model="checkedAll" 
+                v-model="isCheckAll" 
+                @click="clickCheckAll"
                 :disabled="isShowStepper">全选</van-checkbox>
 
             <template #tip>
@@ -101,8 +102,7 @@ export default {
             result:[],
 
             // 全选按钮状态
-            checkedAll:true,
-
+            isCheckAll:false,
 
             // 步进器组件显示隐藏
             isShowStepper:false
@@ -131,15 +131,35 @@ export default {
         // 商品复选框状态变化
         checkedChange(result){
             // VantUI默认变化时自动修改选中商品id数组
-            // console.log(result); 
-            // console.log(this.result);
             // 页面第一次渲染时也改变了,也会调用该方法，并传一个空数组
 
-            // 修改后台商品的选中状态
+            // 发送修改后台商品的选中状态请求
             CheckedCart({cart_ids: result})
+
+            // 只要一个复选状态变化，就判断，
+            // 选中的商品id 的个数（result数组长度）=？所有商品的个数
+            if(result.length == this.list.length){
+                this.isCheckAll =true
+            }else {
+                this.isCheckAll = false
+            }
 
         },
 
+        // 全选 ==> 所有复选
+        clickCheckAll(){
+            if(this.isCheckAll){
+                // 如果全选 true
+                // console.log("true",this.isCheckAll);
+                // 把获得的list商品列表中的所有商品id 都加入result
+                this.result = this.list.map(item=>item.id)
+            }else{
+                // 如果反选 false
+                // console.log("false",this.isCheckAll);
+                // 就将 控制选中商品id的result 改为空
+                this.result = []
+            }
+        },
 
         // 点击编辑
         clickToEdit(){},
