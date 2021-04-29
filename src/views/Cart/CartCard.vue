@@ -1,36 +1,51 @@
 <template>
   <div>
          <!-- 购物车商品卡片 -->
-        <van-swipe-cell v-for="item in list" :key="item.id">
-            <van-card
+
+        <!-- 复选框组 嵌套商品卡片 -->
+        <van-checkbox-group v-model="checkedItemResult">
+
+          <van-checkbox 
+            v-for="item in list" :key="item.id"
+            :name="item.id" >
+
+            <van-swipe-cell>
+                <van-card
                 :price="item.goods.price.toFixed(2)"
                 :desc="'商品库存: '+item.goods.stock"
                 :title="item.goods.title"
                 :thumb="item.goods.cover_url"
                 :lazy-load="true"
                 :origin-price="item.goods.price*1.5"
-            />
+                />
 
-            <!-- 步进器 -->
-            <van-stepper 
+                <!-- 步进器 -->
+                <van-stepper 
                 :name="item.id"
                 v-model="item.num" 
                 button-size="22" 
                 disable-input 
                 :max="item.goods.stock"
                 @change="clickStepper(item.id,item.num)"
-            />
+                />
 
-            <!-- 滑动删除按钮 -->
-            <template #right>
+                <!-- 滑动删除按钮 -->
+                <template #right>
                 <van-button 
                     square 
                     style="height:100%"
                     text="删除" type="danger" 
                     class="delete-button" />
-            </template>
+                </template>
 
-        </van-swipe-cell>
+            </van-swipe-cell>
+
+          </van-checkbox>
+          
+        </van-checkbox-group>
+
+
+
   </div>
 </template>
 
@@ -44,8 +59,9 @@ import {
 export default {
   data(){
     return {
-      // 商品卡片 步进器
-      //stepperValue:1
+      // 商品卡片 复选框数组
+      // 存放选中的复选框的商品id
+      checkedItemResult:[]
     }
   },
   props:["list"],
@@ -82,30 +98,53 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.van-swipe-cell {
-    margin:10px 0;
-    padding: 0 0 10px;
-    position: relative;
 
+.van-checkbox-group {
+    padding: 10px;
 
-    .van-card {
-        padding: 8px 16px 0;
+    .van-checkbox {
+        display: flex;
+        width: 100%;
+        background-color: #fafafa;
+        margin: 10px 0;
+
+        /deep/.van-checkbox__icon {
+            background-color: #fff;
+            margin-left: 5px;
+        } 
+
+        /deep/.van-checkbox__label {
+            flex: 1;
+        
+
+            .van-swipe-cell {
+                margin:10px 0;
+
+                .van-card {
+                    padding: 8px 16px 8px 0;
+                }
+
+                .van-stepper {
+                    position: absolute;
+                    right: 20px;
+                    bottom: 10px;
+                    // text-align: right;
+                    // margin-right: 20px;
+                    button {
+                       .van-stepper__plus {
+                           background-color: teal;
+                       }
+                   }
+                }
+
+            }
+
     }
 
-    .van-stepper {
-        position: absolute;
-        right: 20px;
-        bottom: 10px;
-        // text-align: right;
-        // margin-right: 20px;
-        button {
-           .van-stepper__plus {
-               background-color: teal;
-           }
-       }
     }
 
 }
+
 
 
 </style>

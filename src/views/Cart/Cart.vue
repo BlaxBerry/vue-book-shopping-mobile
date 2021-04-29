@@ -5,6 +5,8 @@
     <!-- 头部标题栏 -->
     <HeaderBar></HeaderBar>
 
+    共{{list.length}}种
+
     <!-- 购物车商品卡片 -->
     <CartCard :list="list"></CartCard>
 
