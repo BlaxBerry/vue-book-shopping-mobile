@@ -53,3 +53,24 @@ export const GetCart = (params = '') => request.get('/carts?' + params)
 
 // 删除购物车
 export const DeleteCart = (id) => request.delete(`/carts/${id}`)
+
+
+
+// 城市数据
+export const GetAllCity = () => request.get('/city')
+
+// 地址详情
+export const GetCityDetail = (id) => request.get('/address', id)
+
+// 添加地址
+// name, address, phone, province, city, country
+export const AddUserAddress = (params) => request.post('/address/', params)
+
+// 编辑地址
+export const EditAddress = (id) => request.put(`/addres/${id}`)
+
+// 删除地址
+export const DeleteAddress = (id) => request.delete(`/address/${id}`)
+
+// 设置默认地址
+export const SetDefaultAddress = (id) => request.patch(`/address/${id}/default`)

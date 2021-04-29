@@ -46,7 +46,10 @@ import {
     // 滑动单元格
     SwipeCell,
     // icon 图标
-    Icon
+    Icon,
+    // 地址
+    AddressList,
+    AddressEdit
 } from 'vant';
 
 Vue.use(Swipe)
@@ -72,4 +75,6 @@ Vue.use(Swipe)
     .use(CheckboxGroup)
     .use(Stepper)
     .use(SwipeCell)
-    .use(Icon);
+    .use(Icon)
+    .use(AddressList)
+    .use(AddressEdit);
