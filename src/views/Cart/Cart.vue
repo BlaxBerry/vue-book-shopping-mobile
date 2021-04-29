@@ -69,8 +69,6 @@ export default {
       // 复选框
       checkAll:false,
 
-      // 被选中的商品 ID数组
-      result:[]
     }
   },
   components:{
@@ -98,24 +96,16 @@ export default {
       // 如果checkall是true（全选）
       if(this.checkAll){
         // 请求获取所有商品列表，遍历id添加到子组件的result
-        this.$refs.childCard.result = []
         GetCart('include=goods').then(res=>{
           res.data.map(item=>{
             this.$refs.childCard.result.push(item.id)
           })
         })
         console.log(this.$refs.childCard.result);
+        this.$refs.childCard.result = []
       }else{
         this.$refs.childCard.result = []
       }
-      
-
-      //   this.init()
-      //   this.list.map(item=>{
-      //       this.result.push(item.id)
-      //   })
-      //   // console.log(this.result);
-      //   CheckedCart({cart_ids: this.result})
 
     },
 
@@ -124,13 +114,6 @@ export default {
     changeCheckbox(val){
       // console.log(val);
       this.checkAll = val
-    },
-
-    init(){
-        // 获取购物车列表
-        GetCart('include=goods').then(res=>{
-          this.list = res.data
-        })
     }
    
   },
@@ -141,6 +124,11 @@ export default {
       message: '加载中...',
       forbidClick: true,
     });
+
+    // 获取购物车列表
+    GetCart('include=goods').then(res=>{
+      this.list = res.data
+    })
   }
 }
 </script>
