@@ -95,12 +95,17 @@ export default {
         TabControl,
         GoodItem 
     },
-    created(){
+    mounted(){
+        // 加载提醒
+        this.$toast.loading({
+          message: '加载中...',
+          forbidClick: true,
+        });
+
+        // 获取详情页数据
         // 接受的 商品 id
         // console.log(this.$route.query.id);
         // console.log(this.book);
-
-        // 获取详情页数据
         GetDetailData(this.$route.query.id).then(res=>{
             console.log("Detail详情全部页数据",res);
             this.book.detail = res.goods

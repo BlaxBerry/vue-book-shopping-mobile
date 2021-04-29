@@ -1,7 +1,7 @@
 .tab_control {
   display: flex;
   position: sticky;
-  top: 50px;
+  top: 45px;
   z-index: 99;
   text-align: center;
   height: 50px;
@@ -9,6 +9,7 @@
   background-color: #fff;
   line-height: 40px;
   font-size: 15px;
+  box-shadow: 1px 1px 5px 1px #ccc;
 }
 .tab_control .tab_control-item {
   flex: 1;

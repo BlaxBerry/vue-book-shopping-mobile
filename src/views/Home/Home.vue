@@ -88,7 +88,7 @@ export default {
 
   .right_login {
     color: #fff;
-    font-size: 10px;
+    font-size: 13px;
     // i {
     //   font-size: 18px;
     // }

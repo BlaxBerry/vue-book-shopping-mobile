@@ -20,5 +20,4 @@ export default {
 
 <style lang="less" scoped>
 @import "../../assets/css/HeaderBar/HeaderBar.less";
-
 </style>

@@ -1,0 +1,18 @@
+.van-nav-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #42b983;
+}
+.van-nav-bar .van-icon {
+  color: #fff;
+}
+.van-nav-bar /deep/ .van-nav-bar__title {
+  color: #fff;
+}
+.van-nav-bar /deep/ .van-nav-bar__arrow {
+  color: #fff;
+}
+.van-nav-bar /deep/ .van-nav-bar__text {
+  color: #fff;
+}

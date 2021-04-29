@@ -9,7 +9,7 @@
       <!-- 左侧菜单 -->
       <div class="left_menu">
         <van-sidebar v-model="leftMenuItemActive">
-        
+                <!-- <van-sidebar-item title="全部" class="all"/> -->
           <van-collapse v-model="leftMenuItemCollapse" accordion>
             <van-collapse-item v-for="item in leftMenuCategories" :key="item.id"
                                :title="item.name" 
@@ -31,25 +31,27 @@
               @clickTabControlItem="clickTabControlItem"
           ></TabControl>
         </div>
+
         <!-- 下部商品列表 -->
         <div class="right_bottom_list">
           <ProductCard 
               :list="lists.list">
           </ProductCard>
+
           <!-- 空白提示 -->
           <van-empty
             v-if="!lists.list.length"
             class="custom-image"
             image="https://img01.yzcdn.cn/vant/custom-empty-image.png"
-            description="描述文字"
-          >
-              <van-button round type="danger" 
-                          class="bottom-button"
-                          @click="reLoadList"
-              >
-                          刷新图书列表
+            description="描述文字">
+              <van-button 
+                    color=" #42b983"
+                    class="bottom-button"
+                    @click="reLoadList">
+                    刷新图书列表
               </van-button>
           </van-empty>
+
         </div>
     </div>   
 
@@ -102,7 +104,7 @@ export default {
     TabControl,
     ProductCard
   },
-  created(){
+  mounted(){
     // 加载提醒  
     this.$toast.loading({
       message: '加载中...',
@@ -118,6 +120,12 @@ export default {
   methods:{
     // 获得点击的left-menu-item的id
     clickLeftMenuItem(id){
+      // 加载提醒  
+      this.$toast.loading({
+        message: '加载中...',
+        forbidClick: true,
+      });
+
       this.lists.id = id
       // console.log(this.lists.id);
       console.log("分类选项id: "+this.lists.id,"，排序方式: " + this.lists.order);
@@ -125,6 +133,12 @@ export default {
     },
     // 获得被点击的tab-control-item的index
     clickTabControlItem(index){
+      // 加载提醒  
+      this.$toast.loading({
+        message: '加载中...',
+        forbidClick: true,
+      });
+
       this.tabControlItemNumber = index;
       // console.log(this.tabControlItemNumber);
       let orders = ["sales","price","comments_count"]

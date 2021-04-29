@@ -3,7 +3,6 @@
 
     <van-card
         v-for="item in list" :key="item.id"
-        num="2"
         :tag="item.collects_count>5?'HOT':''"
         :price="item.price.toFixed(2)"
         :desc="'上架时间: '+item.updated_at.slice(0,10)"

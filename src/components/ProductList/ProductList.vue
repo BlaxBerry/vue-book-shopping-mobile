@@ -21,8 +21,8 @@
                 v-for="(item) in goods.list" :key="item.id"
                 :goodImg="item.cover_url"
                 :goodTitle="item.title"
-                :goodPrice="item.price"
-                :collectNumber="item.collects_count"
+                :goodPrice="item.price.toFixed(2)"
+                :collectNumber="'收藏数：'+item.collects_count"
                 :goodID="item.id"
             >
             </GoodItem>
@@ -93,7 +93,7 @@ export default {
   created(){
       // type : sales/recommend/new
       // page : 1 
-
+      // 获得主页商品数据
     GetHomeGoodsData(this.goods.type,this.goods.page).then(res=>{
       // console.log("111",res.goods);
       this.goods.list = res.goods.data
