@@ -105,12 +105,24 @@ export default {
 
       // 复选框选中状态改变
       changeCheckbox(){
-        // UI默认是在数值变化时自动同步修改 复选框result数组
-        // console.log(this.result);
+          // UI默认是在数值变化时自动同步修改 复选框result数组
+          // console.log(this.result);
 
-        //发送修改请求，改变商品的选中状态
-        CheckedCart({cart_ids: this.result})
+          //发送修改请求，改变商品的选中状态
+          CheckedCart({cart_ids: this.result})
 
+          // 判断是否全选中
+          // console.log(this.result);
+          let checkAllFromChild
+          if(this.result.length == this.list.length){
+            checkAllFromChild = true
+          }else{
+            checkAllFromChild = false
+          }
+
+          // 双向绑定父子组件
+          // 子组件全选不全选，控制父组件
+          this.$emit("changeCheckbox",checkAllFromChild)
       },
     
       // 删除商品
@@ -131,25 +143,24 @@ export default {
         })
 
         
-      }
+      },
 
   },
 
   created(){
         // 获得购物车 列表，
         GetCart('include=goods').then(res=>{
-          this.list = res.data
+          // 获取渲染页面用 商品列表
+          this.list = res.data;
+          // console.log("在Card组件中获取的购物车列表",this.list);
+          // 获取选中状态，并加入result数组
+          this.result = []
+          res.data.filter(item=>item.is_checked==1).map(item=>{
+                this.result.push(item.id)
+          })
+          // console.log("选中商品的id数组",this.result);
         })
-
-
-        // // 并将列表中被选中的商品加入复选框 checkbox 的result数组
-        // GetCart('include=goods').then(res=>{
-        //     console.log("在Card组件中获取的购物车列表",res.data);
-        //     res.data.filter(item=>item.is_checked==1).map(item=>{
-        //         this.result.push(item.id)
-        //     })
-        //     console.log(this.result);
-        // })
+        
   }
 }
 </script>
