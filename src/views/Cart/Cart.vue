@@ -127,6 +127,7 @@ export default {
 
     // 获取购物车列表
     GetCart('include=goods').then(res=>{
+      // console.log(res);
       this.list = res.data
     })
   }
@@ -135,7 +136,7 @@ export default {
 
 <style lang="less" scoped>
 #cart {
-  padding: 50px 0 100px;
+  padding-bottom: 100px;
 
   .van-submit-bar {
     bottom: 50px;

@@ -57,11 +57,19 @@ export default new VueRouter({
             path: '/register',
             component: () =>
                 import ("../views/Register/Register.vue"),
+            meta: {
+                title: "注册",
+                showFooterGuide: false
+            }
         }, {
             // 登陆界面
             path: '/login',
             component: () =>
                 import ("../views/Login/Login.vue"),
+            meta: {
+                title: "登陆",
+                showFooterGuide: false
+            }
         }, {
             // 详情页
             path: '/detail',

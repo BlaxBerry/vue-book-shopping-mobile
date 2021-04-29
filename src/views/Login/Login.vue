@@ -59,8 +59,8 @@
 
             <!-- 底部 -->
             <div class="login_footer">
-                <span>
-                    已经同意<a href="javascript:;" class="attention">《用户服务协议》</a>
+                <span>温馨提示：未注册的账号登陆时将被自动注册，<br>
+                    且代表已经同意<a href="javascript:;" class="attention">《用户服务协议》</a>
                 </span>
                 <a href="https://github.com/BlaxBerry/vue-delivery-web-app" class="about">关于我们</a>
             </div>

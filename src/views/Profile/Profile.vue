@@ -1,16 +1,20 @@
 <template>
   <div id="profile">
     <!-- 个人页 -->
-    <!-- 头部标题栏 -->
-    <HeaderBar></HeaderBar>    
+    <HeaderBar></HeaderBar>
 
 
     <!-- 切换显示 登陆 / 未登陆 -->
     <van-card
         :title="userName"
         :desc="email"
-        :thumb="defaultImgSrc"
-    />
+        :thumb="defaultImgSrc">
+      <!-- 插槽 -->
+      <template #footer>
+           <!-- <van-button size="mini">退出</van-button> -->
+      </template>
+
+    </van-card>
 
 
     <!-- 选项内容 -->

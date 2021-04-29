@@ -59,6 +59,7 @@ export default {
     BackToTop
   },
   created(){
+    console.log("\n\n项目说明：Vue + VantUI 手机Book图书商城项目(SPA)\n\n技术运用：Vue-cli4、vuex、vue-router、axios、LocalStorage、Less、UIframework-VantUI\n\n");
     // 加载提醒
     this.$toast.loading({
       message: '加载中...',
@@ -66,7 +67,7 @@ export default {
     });
     // 获取首页banner轮播图
     GetHomeAllData().then(res=>{
-      console.log("Home首页所有数据",res);
+      // console.log("Home首页所有数据",res);
       // banner Swiper轮播图
       this.bannerSwiperList = res.slides
       // 推荐商品栏

@@ -14,14 +14,22 @@
   font-weight: 700;
 }
 #login .login_heder h1.login_logo {
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
   font-size: 50px;
   font-weight: 700;
   color: #42b983;
   text-align: center;
-  margin: 120px 0 50px;
+}
+#login .login_content {
+  position: absolute;
+  width: 100%;
+  top: 180px;
 }
 #login .login_footer {
-  padding: 20px;
   font-size: 12px;
   line-height: 1.5;
   color: #333;
@@ -32,7 +40,7 @@
 }
 #login .login_footer .about {
   display: block;
-  margin-top: 10px;
+  margin-top: 5px;
   text-decoration: underline;
   font-size: 15px;
 }
