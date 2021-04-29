@@ -5,7 +5,8 @@
 
         <!-- 购物车内容 -->
         <!-- 复选框组 -->
-        <van-checkbox-group v-model="result">
+        <van-checkbox-group v-model="result"
+                    @change="checkedChange">
             <!-- 商品复选框 -->
             <van-checkbox 
                     v-for="item in list" :key="item.id"
@@ -31,7 +32,8 @@
 
                     <template #right>
                       <!-- 商品删除按钮 -->
-                      <van-button square text="删除" type="danger" class="delete-button" />
+                      <van-button square text="删除" type="danger" class="delete-button" 
+                             @click="delGood(item.id)"/>
 
                     </template>
 
@@ -81,7 +83,12 @@ import ProductCard from "@/components/ProductCard/ProductCard.vue"
 // 导入 api接口
 import {
   // 获取购物车列表
-  GetCart
+  GetCart,
+  // 修改商品选中状态
+  CheckedCart,
+  // 删除商品
+  DeleteCart
+
 } from "@/network/api.js"
 
 export default {
@@ -92,6 +99,7 @@ export default {
 
             // 复选框全部选择 商品id的数组
             result:[],
+
             // 全选按钮状态
             checkedAll:true,
 
@@ -108,19 +116,60 @@ export default {
         ProductCard
     },
 
-    mounted(){
+   created(){
+        // 获得购物车商品，并渲染页面
         GetCart('include=goods').then(res=>{
-            console.log(res.data);
             this.list = res.data
+            // console.log(res.data);
+            // 过滤筛选出 获取的list中被选中的商品的id，放入 result数组
+            this.result = res.data.filter(item=>item.is_checked==1).map(item=>item.id)
+            // console.log(this.result);
         })
     },
 
     methods:{
-        // 提交订单
-        onSubmit(){},
+        // 商品复选框状态变化
+        checkedChange(result){
+            // VantUI默认变化时自动修改选中商品id数组
+            // console.log(result); 
+            // console.log(this.result);
+            // 页面第一次渲染时也改变了,也会调用该方法，并传一个空数组
+
+            // 修改后台商品的选中状态
+            CheckedCart({cart_ids: result})
+
+        },
+
 
         // 点击编辑
-        clickToEdit(){}
+        clickToEdit(){},
+
+        // 删除商品
+        delGood(id){
+            // 发送删除请求，删除后台数据
+             DeleteCart(id).then(res=>{
+                console.log("商品删除成功");
+                // 提示删除信息
+                this.$toast.loading({
+                    message: '删除中...',
+                    forbidClick: true,
+                });
+                // 重新获取后台数据，渲染页面
+                GetCart('include=goods').then(res=>{
+                  this.list = res.data
+                })
+    
+            })
+        },
+
+        // 提交按钮
+        onSubmit(){
+            if(this.list.length==0){
+                this.$toast("不能提交一个空的购物车～")
+            }else { 
+                this.$toast('Sorry, 该功能尚未开放，请等待更新')
+            }
+        },
 
 
 
