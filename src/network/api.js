@@ -40,6 +40,7 @@ export const AddCart = (params) => request.post('/carts', params)
 export const EditCart = (id, params) => request.put(`/carts/${id}`, params)
 
 // 购物车商品状态（全选/全不选）
+// params = {cart_ids:[]}
 export const CheckedCart = (params) => request.patch('/carts/checked', params)
 
 // 获取全部购物车

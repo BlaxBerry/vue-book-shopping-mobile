@@ -8,7 +8,9 @@
     共{{list.length}}种
 
     <!-- 购物车商品卡片 -->
-    <CartCard :list="list"></CartCard>
+    <CartCard 
+        :list="list"
+    ></CartCard>
 
     <!-- 空白状态 -->
     <van-empty v-if="!list.length" 
@@ -58,6 +60,8 @@ export default {
       list:[],
       // 商品卡片 步进器
       // stepperValue:1
+      // 复选框
+      checkedAll:true
     }
   },
   components:{
@@ -69,10 +73,7 @@ export default {
     onSubmit(){
       this.$toast.success("提交成功")
     },
-    // 复选框
-    checkedAll(){
-
-    }
+   
   },
   mounted(){
     // 加载提醒  
@@ -84,7 +85,6 @@ export default {
     GetCart('include=goods').then(res=>{
       console.log("获取购物车列表",res);
       this.list = res.data
-      console.log(this.list);
     })
   }
 }
@@ -92,7 +92,7 @@ export default {
 
 <style lang="less" scoped>
 #cart {
-  padding: 50px 0;
+  padding: 50px 0 100px;
 
   .van-submit-bar {
     bottom: 50px;
