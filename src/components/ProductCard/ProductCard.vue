@@ -6,7 +6,7 @@
         num="2"
         :tag="item.collects_count>5?'HOT':''"
         :price="item.price.toFixed(2)"
-        :desc="'收藏数: '+item.collects_count"
+        :desc="'上架时间: '+item.updated_at.slice(0,10)"
         :title="item.title"
         :thumb="item.cover_url"
         :lazy-load="true"
