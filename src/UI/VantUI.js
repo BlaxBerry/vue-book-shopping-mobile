@@ -44,7 +44,9 @@ import {
     // 步进器
     Stepper,
     // 滑动单元格
-    SwipeCell
+    SwipeCell,
+    // icon 图标
+    Icon
 } from 'vant';
 
 Vue.use(Swipe)
@@ -69,4 +71,5 @@ Vue.use(Swipe)
     .use(Checkbox)
     .use(CheckboxGroup)
     .use(Stepper)
-    .use(SwipeCell);
+    .use(SwipeCell)
+    .use(Icon);

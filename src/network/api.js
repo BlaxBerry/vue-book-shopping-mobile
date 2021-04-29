@@ -20,6 +20,8 @@ export const GetCategoryOrderList = (id = 0, page = 1, order = "sales") =>
 // detail详情页数据
 export const GetDetailData = (id) => request.get('/goods/' + id)
 
+
+
 // register 注册
 export const Register = (params) => request.post('/auth/register', params)
 
@@ -28,6 +30,9 @@ export const Login = (params) => request.post('/auth/login', params)
 
 // 退出登陆 logout
 export const Logout = () => request.post('/auth/logout')
+
+// 得到用户信息
+export const GetUserData = () => request.get('/user')
 
 
 

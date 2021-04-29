@@ -1,63 +1,32 @@
-.main {
-    margin-top: 50px;
-    // position: absolute;
-    // z-index: 1000;
-    // width: 100%;
-    .user_info {
-        height: 150px;
-        background-color: #008080;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 20px;
-        .user_img {
-            height: 70%;
+#profile {
+    padding: 50px 20px;
+
+    .van-card {
+        margin: 20px 0 10px;
+        padding: 20px;
+        background: -webkit-linear-gradient(left,  #008080, #42b983);
+
+        .van-card__content {
             display: flex;
-            align-items: center;
-            background-color: #fff;
-            border-radius: 50%;
-            img {
-                height: 100%;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 20px;
+
+            .van-card__title {
+                color:  #fff;
+                font-size: 25px;
+                height: 30px;
+            }
+    
+            .van-card__desc {
+                color:  #ccc
                 
             }
         }
-        .user_message {
-            flex: 2;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            text-align: center;
-            height: 30%;
-        }
-        .go_login{
-            a{
-                .iconfont {
-                    font-size: 30px;
-                    color: #333;
-                }
-            }
-        }
+
     }
 
     .profile_list {
-        display: flex;
-        flex-direction: column;
-        padding-top: 20px;
-        .profile_list_item {
-            height: 30px;
-            line-height: 30px;
-            font-size: 22px;
-            margin: 15px ;
-            .iconfont {
-                display: inline-block;
-                width: 30px;
-                text-align: center;
-                font-size: 25px;
-                margin-right: 20px;
-                font-weight: 700;
-                color:  #008080;
-                vertical-align: middle;
-            }
-        }
+        margin: 30px 0;
     }
-  }
+}

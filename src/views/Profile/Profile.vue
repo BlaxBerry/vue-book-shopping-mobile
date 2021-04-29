@@ -1,48 +1,53 @@
 <template>
-  <div>
+  <div id="profile">
     <!-- 个人页 -->
-
     <!-- 头部标题栏 -->
     <HeaderBar></HeaderBar>    
 
 
-    <div class="main">
-      <!-- 切换显示 登陆 / 未登陆 -->
-      <div class="user_info">
-          <div class="user_img"><img :src="imgSrc" alt=""></div>
-          <div class="user_message">
-            <span>登陆｜注册</span>
-            <span>绑定手机号</span>
-          </div>
-          <span class="go_login">
-            <!-- 跳转 -->
-            <router-link to="/register">
-              <i class="iconfont icon-login"></i>
-            </router-link>
-          </span>
-      </div>
+    <!-- 切换显示 登陆 / 未登陆 -->
+    <van-card
+        :title="userName"
+        :desc="email"
+        :thumb="defaultImgSrc"
+    />
 
-      <div>
 
-      </div>
+    <!-- 选项内容 -->
+    <div class="profile_list"> 
 
-      <div class="profile_list"> 
+        <van-cell title="我的地址" size="large" is-link 
+            to="address"/>
 
-        <van-cell title="我的地址" size="large" icon="location-o" label="描述信息" />
+        <van-cell title="我的订单" size="large" is-link 
+            to="order"/>
 
-        <van-cell title="单元格" size="large" icon="vip-card-o" />
+        <van-cell title="我的收藏" size="large" is-link 
+            to="index"/>
 
-        <van-cell title="单元格" size="large" icon="bar-chart-o" />
+        <van-cell title="账号管理" label="开发中" size="large" 
+            to="setting"/>
 
-        <van-cell title="关于项目" size="large" icon="share-o"  s-link url="https://github.com/BlaxBerry/vue-book-shop-App"/>
-
-        <van-cell title="退出登陆" size="large" icon="delete-o" @click="toLogout"/>
-
-      </div>
-
+        <van-cell 
+            title="关于项目" 
+            size="large" 
+            is-link value="GitHub"
+            label="vue-book-shop-App"
+            s-link url="https://github.com/BlaxBerry/vue-book-shop-App"
+        />
     </div>
 
 
+
+    <!-- 退出按钮 -->
+    <div class="logout">
+          <van-button 
+              color="#42b983"
+              size="large" 
+              @click="toLogout">
+              退出登录
+          </van-button>
+    </div>
 
 
   </div>
@@ -53,12 +58,20 @@
 import HeaderBar from "@/components/HeaderBar/HeaderBar.vue"
 
 // 导入 api接口
-import {Logout} from "@/network/api.js"
+import {
+  // 退出登陆
+  Logout,
+  // 获得用户信息
+  GetUserData
+} from "@/network/api.js"
 
 export default {
   data(){
     return {
-      imgSrc:require('../../assets/images/user-img.png')
+      userName:'',
+      email:'',
+      defaultImgSrc:'',
+      phone:0
     }
   },
   components:{
@@ -81,6 +94,21 @@ export default {
         // }
       })
     }
+  },
+  created(){
+    // 加载提示
+    this.$toast.loading({
+      message: '加载中...',
+      forbidClick: true,
+    });
+    // 获得用户信息
+    GetUserData().then(res=>{
+      console.log(res);
+      this.userName = res.name;
+      this.email = res.email;
+      this.defaultImgSrc = res.avatar_url;
+      this.phone = res.phone
+    })
   }
 }
 </script>
