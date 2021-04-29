@@ -5,10 +5,10 @@
 
         <!-- 购物车内容 -->
         <!-- 复选框组 -->
-        <van-checkbox-group v-model="result"
+        <van-checkbox-group v-model="result" :disabled="flag"
                     @change="checkedChange">
             <!-- 商品复选框 -->
-            <van-checkbox 
+            <van-checkbox @click="flag=false"
                     v-for="item in list" :key="item.id"
                     :name="item.id">
 
@@ -27,8 +27,11 @@
                     />
 
                     <!-- 步进器 -->
-                    <van-stepper v-model="item.num" 
-                            min="0" :max="item.goods.stock" />
+                    <van-stepper v-model="item.goods.num" 
+                            min="0" :max="item.goods.stock" 
+                            @change="flag=true"
+                            @focus="flag=true"
+                            @blur="flag=false"/>
 
                     <template #right>
                       <!-- 商品删除按钮 -->
@@ -46,7 +49,7 @@
 
         <!-- 提交订单 -->
         <van-submit-bar 
-            :price="0" 
+            :price="getTotalPrice * 100" 
             button-text="提交订单" 
             @submit="onSubmit">
 
@@ -54,12 +57,12 @@
             <van-checkbox 
                 v-model="isCheckAll" 
                 @click="clickCheckAll"
-                :disabled="isShowStepper">全选</van-checkbox>
+                :disabled="flag">全选</van-checkbox>
 
-            <template #tip>
+           <!--<template #tip>
                 共计<span class="totalNum">0</span>件商品，编辑商品数量
-                <!-- 编辑按钮 -->
-                <van-button 
+                <-- 编辑按钮 -->
+                <!--<van-button 
                     size="small" 
                     :type="isShowStepper?'danger':'primary'"
                     @click="clickToEdit"
@@ -67,6 +70,8 @@
                     {{isShowStepper?"完成":"编辑"}}
                 </van-button> 
             </template>
+           -->
+
         </van-submit-bar>
 
 
@@ -104,10 +109,8 @@ export default {
             // 全选按钮状态
             isCheckAll:false,
 
-            // 步进器组件显示隐藏
-            isShowStepper:false
-
-            
+            // 禁用复选框
+            flag:false
         }
     },
 
@@ -116,11 +119,11 @@ export default {
         ProductCard
     },
 
-   created(){
+    created(){
         // 获得购物车商品，并渲染页面
         GetCart('include=goods').then(res=>{
             this.list = res.data
-            // console.log(res.data);
+            console.log(res.data);
             // 过滤筛选出 获取的list中被选中的商品的id，放入 result数组
             this.result = res.data.filter(item=>item.is_checked==1).map(item=>item.id)
             // console.log(this.result);
@@ -161,9 +164,6 @@ export default {
             }
         },
 
-        // 点击编辑
-        clickToEdit(){},
-
         // 删除商品
         delGood(id){
             // 发送删除请求，删除后台数据
@@ -184,15 +184,28 @@ export default {
 
         // 提交按钮
         onSubmit(){
-            if(this.list.length==0){
-                this.$toast("不能提交一个空的购物车～")
+            if(this.result.length==0){
+                this.$toast("请先选择商品～")
             }else { 
-                this.$toast('Sorry, 该功能尚未开放，请等待更新')
+                // 跳转到 创建订单页面
+                this.$router.push('/order_create')
             }
         },
 
+        // 点击编辑
+        clickToEdit(){},
+    },
 
-
+    computed:{
+        // 计算总价
+        getTotalPrice(){
+            let sum = 0;
+            // 过滤筛选出 获取的list中被选中的商品
+            this.list.filter(item=>this.result.includes(item.id)).forEach(item=>{
+                sum += item.num * item.goods.price
+            })
+            return Number(sum)
+        }
     }
     
 }
