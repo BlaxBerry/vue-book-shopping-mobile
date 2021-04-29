@@ -38,10 +38,9 @@ export default {
 .recommend {
     width: 100%;
     display: flex;
-    // flex-wrap: wrap;
     text-align: center;
     padding: 10px 0 20px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 
     .recommend_item {
         flex: 1;

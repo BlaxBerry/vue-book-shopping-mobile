@@ -17,6 +17,8 @@ import {
     //折叠面板
     Collapse,
     CollapseItem,
+    // 顶部导航
+    NavBar,
     // 卡片
     Card,
     // 空白状态
@@ -77,4 +79,5 @@ Vue.use(Swipe)
     .use(SwipeCell)
     .use(Icon)
     .use(AddressList)
-    .use(AddressEdit);
+    .use(AddressEdit)
+    .use(NavBar);

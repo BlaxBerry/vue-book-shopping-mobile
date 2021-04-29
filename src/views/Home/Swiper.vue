@@ -28,32 +28,8 @@ export default {
 
 <style lang="less" scoped>
 .swiper{
-    margin-top: 50px;
     img {
         width: 100%;
     }
-    // .van-swipe {
-    //     position: relative;
-    //     width: 100%;
-    // }
-
-    // .van-swipe-item {
-    //     float: left;
-    // }
-    // /deep/.van-swipe__indicators {
-    //     position: absolute;
-    //     bottom: 10px;
-    //     height: 20px;
-    //     width: 100%;
-    //     text-align: center;
-    //     i {
-    //         display: inline-block;
-    //         height: 10px;
-    //         width: 10px;
-    //         background-color:#fff;
-    //         border-radius: 50%;
-    //         margin: 0 10px;
-    //     }
-    // }
 }
 </style>

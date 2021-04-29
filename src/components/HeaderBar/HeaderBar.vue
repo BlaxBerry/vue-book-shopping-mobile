@@ -1,11 +1,14 @@
 <template>
-  <div class="header_bar">
+  <div class="HeaderBar">
+      <van-nav-bar 
+        :title="$route.meta.title + ($route.meta.cartNum?' ( '+$route.meta.cartNum+' )':'')" left-text="返回" left-arrow>
+          <!-- 插槽 -->
+          <template #right>
+             <slot name="right_login"></slot> 
+          </template>
 
-      <slot name="left_search"></slot>
+      </van-nav-bar>
 
-      <div class="header_title">{{$route.meta.title}}</div>
-
-      <slot name="right_login"></slot>
   </div>
 </template>
 
@@ -16,6 +19,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "../../assets/css/HeaderBar/HeaderBar.css";
+@import "../../assets/css/HeaderBar/HeaderBar.less";
 
 </style>

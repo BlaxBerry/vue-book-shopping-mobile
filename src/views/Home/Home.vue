@@ -4,8 +4,13 @@
 
     <!-- 头部标题栏 -->
     <HeaderBar>
-      <span slot="left_search" class="left_search"><i class="iconfont icon-search"></i></span>
-      <span slot="right_login" class="right_login" @click="$router.push('/login')"><i class="iconfont icon-login"><i/></i></span>
+      <!-- <span slot="left_search" class="left_search"><i class="iconfont icon-search"></i></span> -->
+      <span slot="right_login" 
+            class="right_login" 
+            @click="$router.push('/login')">
+          <!-- <i class="iconfont icon-login"></i> -->
+          登陆 | 注册
+      </span>
     </HeaderBar>
 
     <!-- 轮播图 -->
@@ -79,5 +84,14 @@ export default {
 #home {
   position: relative;
   // overflow: hidden;
+
+
+  .right_login {
+    color: #fff;
+    font-size: 10px;
+    // i {
+    //   font-size: 18px;
+    // }
+  }
 }
 </style>

@@ -34,13 +34,14 @@ export default new VueRouter({
                 showFooterGuide: true
             }
         }, {
-            // 订单页
+            // 购物车
             path: '/cart',
             component: () =>
                 import ("../views/Cart/Cart.vue"),
             meta: {
                 title: "购物车",
-                showFooterGuide: true
+                showFooterGuide: true,
+                cartNum: 9
             }
         }, {
             // 个人页
