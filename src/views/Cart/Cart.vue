@@ -5,12 +5,15 @@
 
         <!-- 购物车内容 -->
         <!-- 复选框组 -->
-        <van-checkbox-group v-model="result" :disabled="flag"
-                    @change="checkedChange">
+        <van-checkbox-group 
+                v-model="result" 
+                @change="checkedChange"
+                :disabled="flag">
             <!-- 商品复选框 -->
-            <van-checkbox @click="flag=false"
+            <van-checkbox 
                     v-for="item in list" :key="item.id"
-                    :name="item.id">
+                    :name="item.id"
+                    @click="flag=false">
 
                 <!-- 滑动单元格 -->
                 <van-swipe-cell>
@@ -27,9 +30,9 @@
                     />
 
                     <!-- 步进器 -->
-                    <van-stepper v-model="item.goods.num" 
+                    <van-stepper v-model="item.num" 
                             min="0" :max="item.goods.stock" 
-                            @change="flag=true"
+                            @change="changeNum(item.id,item.num)"
                             @focus="flag=true"
                             @blur="flag=false"/>
 
@@ -59,22 +62,8 @@
                 @click="clickCheckAll"
                 :disabled="flag">全选</van-checkbox>
 
-           <!--<template #tip>
-                共计<span class="totalNum">0</span>件商品，编辑商品数量
-                <-- 编辑按钮 -->
-                <!--<van-button 
-                    size="small" 
-                    :type="isShowStepper?'danger':'primary'"
-                    @click="clickToEdit"
-                >
-                    {{isShowStepper?"完成":"编辑"}}
-                </van-button> 
-            </template>
-           -->
 
         </van-submit-bar>
-
-
 
 
   </div>
@@ -93,7 +82,9 @@ import {
   // 修改商品选中状态
   CheckedCart,
   // 删除商品
-  DeleteCart
+  DeleteCart,
+  // 修改商品数量
+  EditCartNum
 
 } from "@/network/api.js"
 
@@ -192,8 +183,15 @@ export default {
             }
         },
 
-        // 点击编辑
-        clickToEdit(){},
+        // 修该商品数量
+        changeNum(id, num){
+            // 修改步进器时禁用checkbox，状态不会变化
+            this.flag = true
+            // 商品id， 数量
+            console.log(id,num);
+            EditCartNum(id,{num:num})
+            
+        }
     },
 
     computed:{

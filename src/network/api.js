@@ -42,7 +42,7 @@ export const AddCart = (params) => request.post('/carts', params)
 
 // 修改购物车（商品数量）
 // params ={num:1}
-export const EditCart = (id, params) => request.put(`/carts/${id}`, params)
+export const EditCartNum = (id, params) => request.put(`/carts/${id}`, params)
 
 // 购物车商品状态（全选/全不选）
 // params = {cart_ids:[]}
