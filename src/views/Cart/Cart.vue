@@ -8,9 +8,7 @@
     共{{list.length}}种
 
     <!-- 购物车商品卡片 -->
-    <CartCard 
-        :list="list"
-    ></CartCard>
+    <CartCard></CartCard>
 
     <!-- 空白状态 -->
     <van-empty v-if="!list.length" 

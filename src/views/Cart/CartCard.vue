@@ -38,7 +38,8 @@
                     square 
                     style="height:100%"
                     text="删除" type="danger" 
-                    class="delete-button" />
+                    class="delete-button" 
+                    @click="deleteGood(item.id)"/>
                 </template>
 
             </van-swipe-cell>
@@ -60,21 +61,21 @@ import {
   // 获取购物车列表
   GetCart, 
   // 修改商品选中状态 checked
-  CheckedCart
+  CheckedCart,
+  // 删除商品
+  DeleteCart
 } from "@/network/api.js"
 
 export default {
   data(){
     return {
+      // 商品列表
+      list:[],
       // 商品卡片 复选框数组
       // 存放选中的复选框的商品id
       result:[]
     }
   },
-  props:[
-      // 父组件传入的 购物车列表
-      "list",
-  ],
   methods:{
       // 点击步进器数值，获取商品 num + id
       changeStepper(id,num){
@@ -102,7 +103,7 @@ export default {
           })
       },
 
-      // 复选框数值改变
+      // 复选框选中状态改变
       changeCheckbox(){
         // UI默认是在数值变化时自动同步修改 复选框result数组
         // console.log(this.result);
@@ -112,7 +113,23 @@ export default {
 
       },
     
-      init(){
+      // 删除商品
+      deleteGood(id){
+        // 发送删除商品请求
+        DeleteCart(id).then(res=>{
+            console.log("商品删除成功");
+            // 提示删除信息
+            this.$toast.loading({
+                message: '删除中...',
+                forbidClick: true,
+            });
+            // 重新加载页面，刷新内存
+            GetCart('include=goods').then(res=>{
+              this.list = res.data
+            })
+
+        })
+
         
       }
 
@@ -120,16 +137,19 @@ export default {
 
   created(){
         // 获得购物车 列表，
-        // 并将列表中被选中的商品加入复选框 checkbox 的result数组
         GetCart('include=goods').then(res=>{
-            console.log("在Card组件中获取的购物车列表",res.data);
-            res.data.filter(item=>item.is_checked==1).map(item=>{
-                this.result.push(item.id)
-            })
-            console.log(this.result);
+          this.list = res.data
         })
 
 
+        // // 并将列表中被选中的商品加入复选框 checkbox 的result数组
+        // GetCart('include=goods').then(res=>{
+        //     console.log("在Card组件中获取的购物车列表",res.data);
+        //     res.data.filter(item=>item.is_checked==1).map(item=>{
+        //         this.result.push(item.id)
+        //     })
+        //     console.log(this.result);
+        // })
   }
 }
 </script>
