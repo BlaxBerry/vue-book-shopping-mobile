@@ -22,8 +22,16 @@
             <van-tag plain type="danger">打折</van-tag>
           </template>
           <template #footer>
-            <van-button type="warning" @click="addCart()">加入购物车</van-button>
-            <van-button type="danger" @click="goToCart">立即购买</van-button>
+            <van-button type="warning" 
+                @click="addCart()"
+                :disabled="!book.detail.stock">
+                {{(book.detail.stock)?"加入购物车":"暂无库存"}}
+            </van-button>
+            <van-button type="danger" 
+                @click="goToCart"
+                :disabled="!book.detail.stock">
+                {{(book.detail.stock)?"立即购买":"暂无库存"}}
+            </van-button>
           </template>
         </van-card>
 
@@ -40,8 +48,9 @@
         ></div>
         <!-- 评论 -->
         <div class="comments"
-            v-show="tabControlItemNumber==1"
-        ></div>
+            v-show="tabControlItemNumber==1">
+          <van-cell center :title="(book.detail.comments)?'暂无评论(0)':'该功能开发中'" />
+        </div>
         <!-- 相关内容 -->
         <div class="likes"
             v-show="tabControlItemNumber==2">
@@ -78,11 +87,14 @@ export default {
         return {
             // 该图书的数据模型
             book:{
+                // 价格、名称、库存 等信息
                 detail:{},
                 // 推荐相似内容
                 like_goods:[],
                 // 评论
-                comments:[]
+                comments:[],
+                // 库存
+                flag:true
             },
             // tab-control选项卡 选项标题
             tabControlItemTitle:['商品概述','热门评论','相关推荐'],
@@ -116,7 +128,7 @@ export default {
         // 获得被点击的tab-control-item的index
         clickTabControlItem(index){
           this.tabControlItemNumber = index;
-          console.log(this.tabControlItemNumber);
+          // console.log(this.tabControlItemNumber);
         },
 
         // 前往购物车

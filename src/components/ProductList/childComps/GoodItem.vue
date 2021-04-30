@@ -31,6 +31,12 @@ export default {
                 id:id
             }
         })
+        // 从商品详情页推荐的相关产品点击跳转到详情页
+        // 因为只是路由后面的请求参数id的变化，会导致页面只是刷新而不跳转，所以用this.$router.go(0)
+        setTimeout(() => {
+            this.$router.go(0)
+        }, 500);
+        
     }
   }
 }
