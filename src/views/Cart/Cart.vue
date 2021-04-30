@@ -178,8 +178,14 @@ export default {
             if(this.result.length==0){
                 this.$toast("请先选择商品～")
             }else { 
-                // 跳转到 创建订单页面
-                this.$router.push('/order_create')
+                this.$toast.loading({
+                    message: '提交中...',
+                    forbidClick: true,
+                })               
+                setTimeout(() => {
+                    // 跳转到 创建订单页面
+                    this.$router.push('/order')
+                }, 1000);
             }
         },
 

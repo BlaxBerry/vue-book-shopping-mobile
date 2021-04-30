@@ -97,6 +97,15 @@ export default new VueRouter({
                 title: "地址编辑",
                 showFooterGuide: true
             }
+        }, {
+            // 订单
+            path: '/order',
+            component: () =>
+                import ("../views/Order/Order.vue"),
+            meta: {
+                title: "订单预览",
+                showFooterGuide: true
+            }
         }
 
 

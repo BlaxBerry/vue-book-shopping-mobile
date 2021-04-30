@@ -77,3 +77,38 @@ export const DeleteAddress = (id) => request.delete(`/address/${id}`)
 
 // 设置默认地址
 export const SetDefaultAddress = (id) => request.patch(`/address/${id}/default`)
+
+
+
+// 提交订单 + 清空购物车
+// address_id
+export const Order = (addressId) => request.post('/orders', addressId)
+
+// 订单预览
+export const GetAllOrderPreview = () => request.get('/orders/preview')
+
+// 订单详情
+export const GetOrderDetail = (order) => request.get(`/orders/${order}`)
+
+// 订单列表
+// {page:1,include:'user,orderDetail.goods'}
+export const GetOrderList = (params) => request.get('/orders', params)
+
+// 物流信息
+export const GetExpressData = (order) => request.get(`/orders/${order}/express`)
+
+
+
+// 支付订单
+// 获取支付二维码
+export const PayOrder = (order, params) => request.get(`/orders/${order}/pay`, params)
+
+// 查询订单支付状态
+// 返回值 1、2、3、4、5
+export const GetPayStatus = (order) => request.get(`/orders/${order}/status`)
+
+// 确认收货
+export const ConifrmOrder = () => request.patch(`/orders/${order}/confirm`)
+
+// 评价商品
+export const GoodComment = (order) => request.post(`/orders/${order}/comment`)

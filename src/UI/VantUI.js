@@ -53,7 +53,9 @@ import {
     AddressList,
     AddressEdit,
     // 区域
-    Area
+    Area,
+    // 联系卡片
+    ContactCard
 } from 'vant';
 
 Vue.use(Swipe)
@@ -83,4 +85,5 @@ Vue.use(Swipe)
     .use(AddressList)
     .use(AddressEdit)
     .use(NavBar)
-    .use(Area);
+    .use(Area)
+    .use(ContactCard);
