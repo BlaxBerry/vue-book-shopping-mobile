@@ -59,7 +59,6 @@ export default {
         onSave(content) {
             // VantUI默认参数content 对象形式获得输入的内容
             // console.log("添加的地址",content);
-
             let params = {
                   name: content.name,
                   phone:content.tel,
