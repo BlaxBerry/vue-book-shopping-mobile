@@ -51,7 +51,9 @@ import {
     Icon,
     // 地址
     AddressList,
-    AddressEdit
+    AddressEdit,
+    // 区域
+    Area
 } from 'vant';
 
 Vue.use(Swipe)
@@ -80,4 +82,5 @@ Vue.use(Swipe)
     .use(Icon)
     .use(AddressList)
     .use(AddressEdit)
-    .use(NavBar);
+    .use(NavBar)
+    .use(Area);

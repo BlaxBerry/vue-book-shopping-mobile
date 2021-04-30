@@ -4,9 +4,6 @@
         <!-- 头部标题 -->
         <div class="login_heder">
             <HeaderBar>
-                <span slot="left_search" class="go_back" @click="$router.go(-1)">
-                    <i class="iconfont icon-back"></i>返回
-                </span>
             </HeaderBar>
             <!-- logo  -->
             <h1 class="login_logo">账户注册</h1>

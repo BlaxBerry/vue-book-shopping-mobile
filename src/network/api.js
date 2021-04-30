@@ -59,8 +59,11 @@ export const DeleteCart = (id) => request.delete(`/carts/${id}`)
 // 城市数据
 export const GetAllCity = () => request.get('/city')
 
+// 地址列表
+export const GetAddressList = () => request.get('/address')
+
 // 地址详情
-export const GetCityDetail = (id) => request.get('/address', id)
+export const GetAddressDetail = (id) => request.get('/address', id)
 
 // 添加地址
 // name, address, phone, province, city, country

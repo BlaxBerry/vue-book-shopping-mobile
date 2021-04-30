@@ -1,7 +1,9 @@
 <template>
   <div class="HeaderBar">
       <van-nav-bar 
-        :title="$route.meta.title + ($route.meta.cartNum?' ( '+$route.meta.cartNum+' )':'')" left-text="返回" left-arrow>
+        :title="$route.meta.title + ($route.meta.cartNum?' ( '+$route.meta.cartNum+' )':'')" 
+        left-text="返回" left-arrow
+        @click-left="onClickLeft">
           <!-- 插槽 -->
           <template #right>
              <slot name="right_login"></slot> 
@@ -14,7 +16,11 @@
 
 <script>
 export default {
-
+  methods:{
+    onClickLeft(){
+      this.$router.go(-1)
+    }
+  }
 }
 </script>
 

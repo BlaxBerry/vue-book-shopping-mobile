@@ -2,30 +2,26 @@
   <div id="addressList">
     <!-- 标题栏 -->
     <HeaderBar>
-        <span slot="left_search" class="go_back" @click="$router.go(-1)">
-            <i class="iconfont icon-back"></i>返回
-        </span>
     </HeaderBar>
 
 
     <!-- 空白状态 -->
-    <van-empty description="还没有地址，快去添加" >
+    <van-empty  v-if="!list.length"
+        description="还没有地址，快去添加" >
         <van-button block class="bottom-button"
             to="address_edit/">添加地址</van-button>
     </van-empty>
         
 
     <!-- 列表 -->
-    <!-- <van-address-list
+    <van-address-list
+          v-if="list.length"
           v-model="chosenAddressId"
           :list="list"
-          :disabled-list="disabledList"
-          disabled-text="以下地址超出配送范围"
           default-tag-text="默认"
           @add="onAdd"
           @edit="onEdit"
-    /> -->
-
+    />
 
 
   </div>
@@ -35,49 +31,84 @@
 // 导入 头部标题栏
 import HeaderBar from "@/components/HeaderBar/HeaderBar.vue"
 
+// 导入 api接口
+import {
+  // 获取地址列表
+  GetAddressList
+
+} from "@/network/api.js"
+
 export default {
   data() {
     return {
+      // 所有的地址列表
+      list:[],
+
       chosenAddressId: '1',
-      list: [
-        {
-          id: '1',
-          name: '张三',
-          tel: '13000000000',
-          address: '〒100-8924 東京都千代田区永田町１丁目１０−１',
-          isDefault: true,
-        },
-        {
-          id: '2',
-          name: '李四',
-          tel: '1310000000',
-          address: '〒100-0014 東京都千代田区永田町１丁目７−１',
-        },
-      ],
-      disabledList: [
-        {
-          id: '3',
-          name: '王五',
-          tel: '1320000000',
-          address: '浙江省杭州市滨江区江南大道 15 号',
-        },
-      ],
+      
+      type:'add',
+      addressId:''
     };
   },
+
   components:{
       HeaderBar
   },
+
   methods: {
     // 添加地址按钮
     onAdd() {
-    // 跳转到 编辑地址页面
-        this.$router.push('/address_edit')   
+        // 跳转到 编辑地址页面，修改路由属性 type为 add新增
+        this.$router.push({
+          path:'/address_edit',
+          query:{
+            type:'add'
+          }
+        })  
     },
+
     // 编辑地址
-    onEdit(item, index) {
-    //   Toast('编辑地址:' + index);
+    onEdit(item) {
+        // 跳转到 编辑地址页面,修改路由属性 type为 edit编辑
+        this.$router.push({
+          path:'/address_edit',
+          query:{
+            type:'edit',
+            addressId:item.id
+          }
+        })  
     },
   },
+
+  mounted(){
+      // 提示消息
+        this.$toast.loading({
+        message: '保存成功...',
+        forbidClick: true,
+      });
+
+      // 请求 地址列表
+      GetAddressList().then(res=>{
+        console.log("获取的全部地址列表",res);
+
+        if(res.length = 0){
+          this.list = []
+          return
+        }else{
+          res.data.map(item=>{
+            this.list.push({
+              id: item.id,
+              name:item,name,
+              tel:item.phone,
+              address:item.province + item.city + item.county + item.address,
+              //数字转为bollean
+              isDefault:!!item.is_default
+            })
+          })
+          console.log(this.list);
+        }
+      })
+  }
 };
 </script>
 

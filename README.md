@@ -23,3 +23,6 @@
 
 ## 6、Login 登陆页
 ![](./src/assets/images/MK-Login.png)
+test测试用账户:
+- Email: andy@qq.com
+- password: 123456

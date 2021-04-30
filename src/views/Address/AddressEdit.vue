@@ -1,25 +1,18 @@
 <template>
-  <div>
+  <div id="addressEdit">
+    <!-- 添加/编辑地址 -->
     <!-- 标题栏 -->
-    <HeaderBar>
-        <span slot="left_search" class="go_back" @click="$router.go(-1)">
-            <i class="iconfont icon-back"></i>返回
-        </span>
-    </HeaderBar>
-
+    <HeaderBar></HeaderBar>
 
 
     <van-address-edit
         :area-list="areaList"
-        show-postal
-        show-delete
-        show-set-default
-        show-search-result
-        :search-result="searchResult"
+        :show-postal="true"
+        :show-delete="typeIsEdit"
         :area-columns-placeholder="['请选择', '请选择', '请选择']"
+        :address-info="addressInfo"
         @save="onSave"
         @delete="onDelete"
-        @change-detail="onChangeDetail"
     />
 
 
@@ -29,56 +22,106 @@
 <script>
 // 导入 头部标题栏
 import HeaderBar from "@/components/HeaderBar/HeaderBar.vue"
+//Vant 官方提供了一份默认的省市区数据
+import { areaList } from '@vant/area-data';
+
+// 导入 api接口
+import {
+  // 获取当前地址的信息
+  GetAddressDetail,  
+  // 添加地址
+  AddUserAddress,
+  // 编辑地址
+  EditAddress,
+  // 删除地址
+  DeleteAddress
+
+} from "@/network/api.js"
 
 export default {
     data() {
         return {
-          areaList:{
-            province_list: {
-              110000: '北京市',
-              120000: '天津市',
-            },
-            city_list: {
-              110100: '北京市',
-              120100: '天津市',
-            },
-            county_list: {
-              110101: '东城区',
-              110102: '西城区',
-              // ....
-            },
-          },
-          searchResult: [],
-        };
+          // VantUI自带 中国县市区地名
+          areaList:areaList,
+
+          // 删除按钮显示/隐藏
+          typeIsEdit:true,
+
+          // 修改时自动充填表格的初始默认内容
+          addressInfo:{}
+        }
     },
 
     methods: {
-        onSave() {
-        //   Toast('save');
+        // VantUI 自带 保存表单数据
+        onSave(content) {
+            // VantUI默认参数content 对象形式获得输入的内容
+            // console.log("添加的地址",content);
+
+            // 发送添加地址请求
+            AddUserAddress({
+              name: content.name,
+              phone:content.tel,
+              province:content.province,
+              city:content.city,
+              county:content.county,
+              address:content.addressDetail,
+              is_default:content.is_default ? 1 : 0
+              }).then(res=>{
+                  console.log(res);
+                  // 提示消息
+                  this.$toast.loading({
+                  message: '保存成功...',
+                  forbidClick: true,
+                  });
+                  // 跳转页面
+                  setTimeout(()=>{
+                    this.$router.go(-1)
+                  },1000)
+              })
         },
+
+        // 删除表单 
         onDelete() {
-        //   Toast('delete');
+            // 发送删除地址请求
+            DeleteAddress(this.$route.query.addressId)
+          
+            // 提示消息
+            this.$toast.loading({
+            message: '删除成功...',
+            forbidClick: true,
+            });
+
+            // 跳转页面
+            setTimeout(()=>{
+              this.$router.go(-1)
+            },1000)
+
         },
-        onChangeDetail(val) {
-          if (val) {
-            this.searchResult = [
-              {
-                name: '黄龙万科中心',
-                address: '杭州市西湖区',
-              },
-            ];
-          } else {
-            this.searchResult = [];
-          }
-        },
+
     },
 
     components:{
         HeaderBar
+    },
+
+    mounted(){
+      // console.log(areaList);
+      // VantUI 提供的区地址域数据
+      this.city_list = areaList.city_list
+      this.county_list = areaList.county_list
+      this.province_list = areaList.province_list
+      
+      // 判断路由地址中参数type 是 add 还是 edit，来决定是否添加删除按钮
+      this.typeIsEdit = (this.$route.query.type == "edit")?true:false;
+
+
     }
 }
 </script>
 
 <style lang="less" scoped>
-
+#addressEdit {
+  padding-top: 50px;
+}
 </style>
