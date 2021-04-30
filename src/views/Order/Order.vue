@@ -26,9 +26,23 @@
     <!-- 提交订单 -->
     <van-submit-bar 
        :price="getTotalPrice * 100" 
-       button-text="创建订单" 
+       button-text="确定提交" 
        @submit="onSubmit" />
 
+
+    <!-- 支付弹出层 -->
+    <!-- 图标位置 -->
+    <!-- <van-popup
+        v-model="showProp"
+        closeable
+        close-icon-position="top-left"
+        position="bottom"
+        :style="{ height: '30%'}">
+      <div class="btns">
+        <van-button type="primary" block color="#42b983">微信支付</van-button>
+        <van-button type="primary" block color="#dc143c">PayPay支付</van-button>
+      </div>
+    </van-popup>   -->
 
   </div>
 </template>
@@ -42,7 +56,8 @@ import {
   // 获取订单预览
   GetAllOrderPreview,
   // 创建生成订单
-  CreateOrder
+  CreateOrder,
+
 } from "@/network/api.js"
 
 export default {
@@ -52,6 +67,10 @@ export default {
       list:[],
       // address地址
       address:[],
+      // 弹出层显示隐藏
+      showProp:false,
+      // 订单号
+      orderNum:''
     }
   },
 
@@ -66,10 +85,21 @@ export default {
       CreateOrder({
         address_id : this.address.id
       }).then(res=>{
-        console.log(res);
+          console.log(res);
 
-        this.$toast.success('创建订单成功')
+          this.$toast.success('创建订单成功')
+
+         setTimeout(()=>{ 
+            // 弹出层显示
+            this.showProp = true
+         },1000)
+
+         // 订单ID 
+         this.orderNum = res.order_no
+
+
       })
+      
     },
 
     //初始化
@@ -135,6 +165,24 @@ export default {
 
     .van-submit-bar {
         padding-bottom: 50px;
+    }
+
+    .van-popup {
+      .btns {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          width: 90%;
+          .van-button {
+            height: 50px;
+
+            &:nth-child(1){
+              margin-bottom: 20px;
+            }
+       
+          }
+      }
     }
 }
 </style>

@@ -98,12 +98,21 @@ export default new VueRouter({
                 showFooterGuide: true
             }
         }, {
-            // 订单
+            // 订单确认
             path: '/order',
             component: () =>
                 import ("../views/Order/Order.vue"),
             meta: {
-                title: "订单预览",
+                title: "订单确认",
+                showFooterGuide: true
+            }
+        }, {
+            // 订单详情
+            path: '/order_detail',
+            component: () =>
+                import ("../views/Order/OrderDetail.vue"),
+            meta: {
+                title: "订单详情",
                 showFooterGuide: true
             }
         }
