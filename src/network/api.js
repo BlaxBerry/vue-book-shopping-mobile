@@ -82,7 +82,7 @@ export const SetDefaultAddress = (id) => request.patch(`/address/${id}/default`)
 
 // 提交订单 + 清空购物车
 // address_id
-export const Order = (addressId) => request.post('/orders', addressId)
+export const CreateOrder = (addressId) => request.post('/orders', addressId)
 
 // 订单预览
 export const GetAllOrderPreview = () => request.get('/orders/preview')

@@ -111,6 +111,11 @@ export default {
     },
 
     created(){
+        // 提示信息
+        this.$toast.loading({
+            message: '加载中...',
+            forbidClick: true,
+        })
         // 获得购物车商品，并渲染页面
         GetCart('include=goods').then(res=>{
             this.list = res.data

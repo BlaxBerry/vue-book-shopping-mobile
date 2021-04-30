@@ -26,7 +26,7 @@
     <!-- 提交订单 -->
     <van-submit-bar 
        :price="getTotalPrice * 100" 
-       button-text="提交订单" 
+       button-text="创建订单" 
        @submit="onSubmit" />
 
 
@@ -40,7 +40,9 @@ import HeaderBar from "@/components/HeaderBar/HeaderBar.vue"
 // 导入api接口
 import {
   // 获取订单预览
-  GetAllOrderPreview
+  GetAllOrderPreview,
+  // 创建生成订单
+  CreateOrder
 } from "@/network/api.js"
 
 export default {
@@ -58,8 +60,17 @@ export default {
   },
 
   methods:{
-    // 提交
-    onSubmit(){},
+    // 提交订单
+    onSubmit(){
+      // 创建提交订单
+      CreateOrder({
+        address_id : this.address.id
+      }).then(res=>{
+        console.log(res);
+
+        this.$toast.success('创建订单成功')
+      })
+    },
 
     //初始化
     init(){
