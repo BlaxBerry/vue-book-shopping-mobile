@@ -63,14 +63,14 @@ export const GetAllCity = () => request.get('/city')
 export const GetAddressList = () => request.get('/address')
 
 // 地址详情
-export const GetAddressDetail = (id) => request.get('/address', id)
+export const GetAddressDetail = (id) => request.get(`/address/${id}`)
 
 // 添加地址
 // name, address, phone, province, city, country
 export const AddUserAddress = (params) => request.post('/address/', params)
 
 // 编辑地址
-export const EditAddress = (id) => request.put(`/addres/${id}`)
+export const EditAddress = (id, params) => request.put(`/address/${id}`, params)
 
 // 删除地址
 export const DeleteAddress = (id) => request.delete(`/address/${id}`)

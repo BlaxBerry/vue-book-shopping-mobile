@@ -43,11 +43,11 @@ export default {
     return {
       // 所有的地址列表
       list:[],
-
-      chosenAddressId: '1',
-      
+      // checkbox选中，address地址的id
+      chosenAddressId: 570,
+      // 跳转的页面是add新增还是edit编辑
       type:'add',
-      addressId:''
+    
     };
   },
 
@@ -80,7 +80,7 @@ export default {
     },
   },
 
-  mounted(){
+  created(){
       // 提示消息
         this.$toast.loading({
         message: '保存成功...',
