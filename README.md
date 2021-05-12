@@ -66,14 +66,25 @@ password：123456
 
 ---
 
-### Order 订单列表页
+### Order 订单
+### OrderList 订单列表页
 ![](./src/assets/images/MK-OrderConfirm.png)
+
+---
+
+### PayOrder 支付订单
+![](./src/assets/images/Pay.png)
+
+---
+
+### OrderDetail 订单详情
+![](./src/assets/images/OrderDetail.png)
 
 ---
 
 ### Address 发货地址
 ### 1. Address List 地址列表
-![](./src/assets/images/MK-AddressList.png)
+![](./src/assets/images/AddressList.png)
 
 ---
 

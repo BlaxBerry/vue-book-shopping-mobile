@@ -35,8 +35,8 @@
         <van-cell 
             title="关于项目" 
             size="large" 
-            is-link value="GitHub"
-            label="vue-book-shop-App"
+            is-link value="Chen GitHub"
+            label="Vue-Book-Shop-App-BlaxBerry"
             s-link url="https://github.com/BlaxBerry/vue-book-shop-App"
         />
     </div>
