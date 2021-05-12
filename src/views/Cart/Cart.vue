@@ -3,6 +3,18 @@
     <!-- 头部标题 -->
     <HeaderBar></HeaderBar>
 
+    <!-- 空状态 -->
+    <div class="empty" v-show="list.length==0">
+      <van-empty description="还是空的～" />
+      <van-button
+        to="home/"
+        color="rgb(66, 185, 131)"
+        style="position: absolute;left: 50%;transform: translateX(-50%);width: 100px;"
+      >
+        添加商品
+      </van-button>
+    </div>
+
     <!-- 购物车内容 -->
     <!-- 复选框组 -->
     <van-checkbox-group
@@ -134,10 +146,10 @@ export default {
         sum += item.num;
       });
       this.cartSum = sum;
-    //   console.log(sum);
-      console.log(this.$route.meta);
-      this.$route.meta.cartNum = sum
-      console.log(this.$route.meta.cartNum);
+      //   console.log(sum);
+      // console.log(this.$route.meta);
+      // this.$route.meta.cartNum = sum;
+      // console.log(this.$route.meta.cartNum);
     });
   },
 
