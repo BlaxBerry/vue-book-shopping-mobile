@@ -1,7 +1,7 @@
 <template>
   <div class="HeaderBar">
       <van-nav-bar 
-        :title="$route.meta.title + ($route.meta.cartNum?' ( '+$route.meta.cartNum+' )':'')" 
+        :title="$route.meta.title" 
         left-text="返回" left-arrow
         @click-left="onClickLeft">
           <!-- 插槽 -->
