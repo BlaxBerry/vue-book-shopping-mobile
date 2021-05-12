@@ -1,6 +1,8 @@
 ## vue-book-shop（SPA）
 ### IT图书商城手机端(单页面应用)
-![](./src/assets/images/MK-Home.png)
+
+---
+
 ### Project setup
 ``` bash
 npm install
@@ -25,7 +27,8 @@ password：123456
 ---
 
 ### Home 主页
-![](./src/assets/images/MK-Home2.png)
+![](./src/assets/images/MK-Home.png)
+![](./src/assets/images/Mk-Home2.png)
 
 ---
 
@@ -34,7 +37,7 @@ password：123456
 
 ---
 
-## Profile 个人主页
+### Profile 个人主页
 ![](./src/assets/images/MK-Profile.png)
 
 ---
