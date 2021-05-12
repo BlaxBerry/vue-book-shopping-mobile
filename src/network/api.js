@@ -101,10 +101,16 @@ export const GetExpressData = (order) => request.get(`/orders/${order}/express`)
 
 // 支付订单
 // 获取支付二维码
-export const PayOrder = (order, params) => request.get(`/orders/${order}/pay`, params)
+// type： 支付类型（aliyun）
+// export const PayOrder = (order, type) => request.get(`/orders/${order}/pay`)
+export const PayOrder = (order, type) => request({
+    url:`/orders/${order}/pay`,
+    type
+})
 
 // 查询订单支付状态
-// 返回值 1、2、3、4、5
+// 返回值 1(新订单)、2（支付完成）、3（已经发货）、4（已经收货）、5（已经过期）
+// order: 订单号
 export const GetPayStatus = (order) => request.get(`/orders/${order}/status`)
 
 // 确认收货

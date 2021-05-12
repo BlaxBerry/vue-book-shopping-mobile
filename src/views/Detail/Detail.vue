@@ -28,7 +28,7 @@
                 {{(book.detail.stock)?"加入购物车":"暂无库存"}}
             </van-button>
             <van-button type="danger" 
-                @click="goToCart"
+                @click="addAndGoToCart"
                 :disabled="!book.detail.stock">
                 {{(book.detail.stock)?"立即购买":"暂无库存"}}
             </van-button>
@@ -131,9 +131,12 @@ export default {
           // console.log(this.tabControlItemNumber);
         },
 
-        // 前往购物车
-        goToCart(){
-          this.$router.push('/cart')
+        // 立即购买
+        addAndGoToCart(){
+          // 调用加入购物车
+          this.addCart()
+          // 前往购物车
+          setTimeout(()=>{this.$router.push('/cart')},1000)
         },
 
         // 加入购物车

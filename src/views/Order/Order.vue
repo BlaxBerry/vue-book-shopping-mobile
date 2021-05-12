@@ -58,6 +58,10 @@ import {
   GetAllOrderPreview,
   // 创建生成订单
   CreateOrder,
+  // 支付
+  PayOrder,
+  // 查询支付状态
+  GetPayStatus,
 } from "@/network/api.js";
 
 export default {
@@ -70,7 +74,7 @@ export default {
       // 弹出层显示隐藏
       showProp: false,
       // 订单号
-      orderNum: "",
+      orderID: "",
     };
   },
 
@@ -81,30 +85,48 @@ export default {
   methods: {
     // 提交订单
     onSubmit() {
-      // 创建提交订单
-      CreateOrder({
-        address_id: this.address.id,
-      }).then((res) => {
-        console.log(res);
-
-        if (this.address.length == 0) {
-          // console.log('还没添加地址');
-          //提示信息
-          this.$toast.fail("请先添加收货地址");
+      // 判断添加地址Address
+      if (this.address.length == 0) {
+        // 提示信息 没添加
+        this.$toast.fail("请先添加收货地址");
+      } else {
+        // 判断列表是否为空
+        if (this.list.length == 0) {
+          // 列表为空
+          // 提示信息
+          this.$toast.fail("不能提交一个空订单");
         } else {
-          // 提示创建成功
-          this.$toast.success("创建订单成功");
-
-          setTimeout(() => {
-            // 弹出层显示
-            this.showProp = true;
-          }, 1000);
-
-          // 订单ID
-          //  console.log(res.id);
-          this.orderNum = res.order_no;
+          // 列表不为空
+          // 创建提交订单
+          CreateOrder({
+            address_id: this.address.id,
+          }).then((res) => {
+            // console.log(res);
+            // // 提示信息 创建成功
+            // this.$toast.success("创建订单成功");
+            // 支付弹出层显示
+            setTimeout(() => {
+              this.showProp = true;
+            }, 1000);
+            // 订单ID
+            this.orderID = res.id;
+            // 支付
+            // PayOrder(this.orderID, { type: "wechat" }).then((res) => {
+            //   console.log(res);
+            // });
+            // 查询支付状态
+            GetPayStatus(this.orderID).then((res) => {
+              console.log(res);
+              //  返回值 
+              // 1(新订单)、
+              // 2（支付完成）、
+              // 3（已经发货）、
+              // 4（已经收货）、
+              // 5（已经过期）
+            });
+          });
         }
-      });
+      }
     },
 
     //初始化
@@ -122,9 +144,9 @@ export default {
         this.list = res.carts;
         // 发货地址
         // 过滤，获取默认地址
-        let addressFormResponese = res.address.filter((item) => {
+        res.address.filter((item) => {
           if (item.is_default == 1) {
-            // console.log(item);
+            // 显示默认（选中）的地址
             this.address = item;
             // console.log(this.address);
           }
@@ -139,11 +161,6 @@ export default {
             forbidClick: true,
           });
         }
-
-        // }else{
-        //   this.address = addressFormResponese[0]
-        // }
-        // console.log(this.list,this.address);
       });
     },
   },
