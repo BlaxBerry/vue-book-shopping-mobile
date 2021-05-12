@@ -5,12 +5,19 @@
     <HeaderBar></HeaderBar>
 
     <!-- 发货地址 -->
-    <h3>配送地址、收件人信息 :</h3>
+    <!-- 没有地址时的新增地址 -->
+    <van-contact-card
+      type="add"
+      @click="$router.push('/address')"
+      v-if="!hasAddress"
+    />
+    <!-- 有地址时的显示 -->
     <van-contact-card
       type="edit"
-      :name="this.address.name ? this.address.name : ' 点击前往添加'"
-      :tel="this.address.phone ? this.address.phone : ' 点击前往添加'"
+      :name="this.address.name"
+      :tel="this.address.phone"
       @click="$router.push('/address')"
+      v-if="hasAddress"
     />
 
     <!-- 商品卡片 -->
@@ -41,8 +48,12 @@
       :style="{ height: '30%' }"
     >
       <div class="btns">
-        <van-button type="primary" block color="#42b983">微信支付</van-button>
-        <van-button type="primary" block color="#dc143c">PayPay支付</van-button>
+        <van-button type="primary" block color="#42b983" @click="goOrderDetail"
+          >微信支付</van-button
+        >
+        <van-button type="primary" block color="#dc143c" @click="goOrderDetail"
+          >PayPay支付</van-button
+        >
       </div>
     </van-popup>
   </div>
@@ -71,6 +82,8 @@ export default {
       list: [],
       // address地址
       address: [],
+      //是否有地址Address
+      hasAddress: false,
       // 弹出层显示隐藏
       showProp: false,
       // 订单号
@@ -101,9 +114,6 @@ export default {
           CreateOrder({
             address_id: this.address.id,
           }).then((res) => {
-            // console.log(res);
-            // // 提示信息 创建成功
-            // this.$toast.success("创建订单成功");
             // 支付弹出层显示
             setTimeout(() => {
               this.showProp = true;
@@ -114,19 +124,27 @@ export default {
             // PayOrder(this.orderID, { type: "wechat" }).then((res) => {
             //   console.log(res);
             // });
-            // 查询支付状态
-            GetPayStatus(this.orderID).then((res) => {
-              console.log(res);
-              //  返回值 
-              // 1(新订单)、
-              // 2（支付完成）、
-              // 3（已经发货）、
-              // 4（已经收货）、
-              // 5（已经过期）
-            });
           });
         }
       }
+    },
+
+    // 点击支付方式按钮
+    goOrderDetail() {
+      // 查询支付状态
+      GetPayStatus(this.orderID).then((res) => {
+        console.log(res);
+        //  返回值
+        // 1(新订单)、
+        // 2（支付完成）、
+        // 3（已经发货）、
+        // 4（已经收货）、
+        // 5（已经过期）
+        this.$router.push({
+          path: "/order_detail",
+          query: res,
+        });
+      });
     },
 
     //初始化
@@ -148,18 +166,18 @@ export default {
           if (item.is_default == 1) {
             // 显示默认（选中）的地址
             this.address = item;
+            this.hasAddress = true;
             // console.log(this.address);
+          } else {
+            this.hasAddress = false;
           }
         });
 
         // 如果用户还没有设置 发货地址
         if (this.address.length == 0) {
           // console.log('还没添加地址');
-          //提示信息
-          this.$toast.loading({
-            message: "请先添加收货地址",
-            forbidClick: true,
-          });
+          // 提示信息 没添加
+          this.$toast.fail("请先添加收货地址");
         }
       });
     },
@@ -188,9 +206,6 @@ export default {
 #order {
   padding: 50px 0 100px;
 
-  h3 {
-    padding: 10px;
-  }
   .van-submit-bar {
     padding-bottom: 50px;
   }
