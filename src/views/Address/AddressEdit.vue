@@ -72,7 +72,7 @@ export default {
             if(this.$route.query.type == "add"){
                 // 发送添加地址请求
                 AddUserAddress(params).then(res=>{
-                    // console.log(res);
+                    console.log(res);
                     // 提示消息
                     this.$toast.loading({
                     message: '添加成功...',

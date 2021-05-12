@@ -29,8 +29,10 @@ export default {
 <style lang="less" scoped>
 .swiper{
     padding-top: 45px;
+    overflow: hidden;
     img {
         width: 100%;
+        height: 200px;
     }
 }
 </style>

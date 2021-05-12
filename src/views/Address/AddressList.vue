@@ -9,7 +9,7 @@
     <van-empty  v-if="!list.length"
         description="还没有地址，快去添加" >
         <van-button block class="bottom-button"
-            to="address_edit/">添加地址</van-button>
+            @click="onAdd">添加地址</van-button>
     </van-empty>
         
 
@@ -124,7 +124,7 @@ export default {
                       //数字转为bollean
                       isDefault:!!item.is_default})
               })
-              console.log(this.list);
+              // console.log(this.list);
           }
 
           // checkebbox 选中状态
