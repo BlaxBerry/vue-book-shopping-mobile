@@ -16,17 +16,16 @@ export default {
   },
   methods: {
     windowScroll() {
-      if (
-        window.pageYOffset >= document.querySelector(".tab_content").offsetTop
-      ) {
-        document.getElementById("backToTop").style.display = "block";
+      // console.log(document.querySelector(".tab_content").offsetTop);
+      if (window.pageYOffset >= 410) {
+        this.isShow = true;
       } else {
-        document.getElementById("backToTop").style.display = "none";
+        this.isShow = false;
       }
     },
     clickToGoTop() {
-      window.scroll(0,0)
-    }
+      window.scroll(0, 0);
+    },
   },
 };
 </script>
