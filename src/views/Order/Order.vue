@@ -65,7 +65,7 @@ import HeaderBar from "@/components/HeaderBar/HeaderBar.vue";
 
 // 导入api接口
 import {
-  // 获取订单预览
+  // 获取订单预览（列表）
   GetAllOrderPreview,
   // 创建生成订单
   CreateOrder,
@@ -131,19 +131,10 @@ export default {
 
     // 点击支付方式按钮
     goOrderDetail() {
-      // 查询支付状态
-      GetPayStatus(this.orderID).then((res) => {
-        console.log(res);
-        //  返回值
-        // 1(新订单)、
-        // 2（支付完成）、
-        // 3（已经发货）、
-        // 4（已经收货）、
-        // 5（已经过期）
-        this.$router.push({
-          path: "/order_detail",
-          query: res,
-        });
+      // 跳转到订单详情页面，并传入提交的订单ID
+      this.$router.push({
+        path: "/orderdetail",
+        query: { orderID: this.orderID },
       });
     },
 

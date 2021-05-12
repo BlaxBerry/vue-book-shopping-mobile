@@ -90,7 +90,7 @@ export const GetAllOrderPreview = () => request.get('/orders/preview')
 // 订单详情
 export const GetOrderDetail = (order) => request.get(`/orders/${order}`)
 
-// 订单列表
+// 订单列表(已经提交的)
 // {page:1,include:'user,orderDetail.goods'}
 export const GetOrderList = (params) => request.get('/orders', params)
 

@@ -108,7 +108,7 @@ export default new VueRouter({
             }
         }, {
             // 订单详情
-            path: '/order_detail',
+            path: '/orderdetail',
             component: () =>
                 import ("../views/Order/OrderDetail.vue"),
             meta: {

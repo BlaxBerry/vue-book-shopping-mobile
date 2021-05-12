@@ -57,7 +57,10 @@ import {
     // 联系卡片
     ContactCard,
     //弹出层
-    Popup
+    Popup,
+    // 步骤条
+    Step, 
+    Steps
 } from 'vant';
 
 Vue.use(Swipe)
@@ -89,4 +92,6 @@ Vue.use(Swipe)
     .use(NavBar)
     .use(Area)
     .use(ContactCard)
-    .use(Popup);
+    .use(Popup)
+    .use(Step)
+    .use(Steps);
