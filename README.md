@@ -1,94 +1,98 @@
-## vue-book-shop（SPA）
-### IT图书商城手机端(单页面应用)
+## Book-Shopping-Mobile
 
----
+图书商城手机端(单页面应用)
 
-### Project setup
-``` bash
-npm install
-```
+> Login
+> test 测试账户：
+>
+> userName：andy@qq.com
+>
+> password：123456
 
-### Compiles and hot-reloads for development
-``` bash
-npm run serve
-```
+## Tech Stacks
 
-### App running at
-```
-http://localhost:80880
-```
-Login
-test测试账户：
+- [Vue2]()
 
-userName：andy@qq.com
+- [Vue-Router]()
 
-password：123456
+- [Vant]()
 
----
+- [Less]()
 
-### Home 主页
-![](./src/assets/images/MK-Home.png)
-![](./src/assets/images/Mk-Home2.png)
+- [Axios]()
 
----
+<details>
+<summary><b>Home 主页</b></summary>
+...
+</details>
 
-### Category 分类页
-![](./src/assets/images/MK-Category.png)
+<details>
+<summary><b>Category 分类页</b></summary>
+...
+</details>
 
----
+<details>
+<summary><b>Profile 个人主页</b></summary>
+...
+</details>
 
-### Profile 个人主页
-![](./src/assets/images/MK-Profile.png)
+<details>
+<summary><b>Register 注册页</b></summary>
+...
+</details>
 
----
+<details>
+<summary><b>Login 登陆页</b></summary>
+**test 测试用账户**:
 
-### Register 注册页
-![](./src/assets/images/MK-Register.png)
-
----
-
-### Login 登陆页
-![](./src/assets/images/MK-Login.png)
-
-**test测试用账户**:
 - Email: andy@qq.com
 - password: 123456
+  </details>
 
----
+## Routes
 
-### Detail 商品详情页
-![](./src/assets/images/MK-Detail.png)
+<details>
+<summary><b>Detail 商品详情页</b></summary>
+...
+</details>
 
----
+<details>
+<summary><b>Cart 购物车</b></summary>
+...
+</details>
 
-### Cart 购物车
-![](./src/assets/images/MK-Cart.png)
+<details>
+<summary><b>OrderList 订单列表页</b></summary>
+...
+</details>
 
----
+<details>
+<summary><b>PayOrder 支付订单</b></summary>
+...
+</details>
 
-### Order 订单
-### OrderList 订单列表页
-![](./src/assets/images/MK-OrderConfirm.png)
+<details>
+<summary><b>OrderDetail 订单详情</b></summary>
+...
+</details>
 
----
+<details>
+<summary><b>Address List 地址列表</b></summary>
+...
+</details>
 
-### PayOrder 支付订单
-![](./src/assets/images/Pay.png)
+<details>
+<summary><b>Add/Edit Address</b></summary>
+...
+</details>
 
----
-
-### OrderDetail 订单详情
-![](./src/assets/images/OrderDetail.png)
-
----
-
-### Address 发货地址
-### 1. Address List 地址列表
-![](./src/assets/images/AddressList.png)
-
----
-
-### 2. Add/Edit Address
-![](./src/assets/images/MK-EditAddress.png)
-
----
+## Images
+![](./public/images/01.png)
+![](./public/images/02.png)
+![](./public/images/03.png)
+![](./public/images/04.png)
+![](./public/images/05.png)
+![](./public/images/06.png)
+![](./public/images/07.png)
+![](./public/images/08.png)
+![](./public/images/09.png)
