@@ -21,6 +21,8 @@
 
 - [Axios]()
 
+## Routes
+
 <details>
 <summary><b>Home 主页</b></summary>
 ...
@@ -48,8 +50,6 @@
 - Email: andy@qq.com
 - password: 123456
   </details>
-
-## Routes
 
 <details>
 <summary><b>Detail 商品详情页</b></summary>
